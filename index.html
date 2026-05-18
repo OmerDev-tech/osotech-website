@@ -2,32 +2,606 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>OSO Tech — Umar | Premium Digital Studio</title>
   
-  <!-- FAVICON - Works on Android, iOS, Desktop -->
+  <!-- SEO BOOST -->
+  <meta name="description" content="OSO Tech - Modern digital studio building apps, tools, and web experiences. Software developer specializing in React Native, AI image recognition, and full-stack development.">
+  <meta name="keywords" content="OSO Tech, Osotech, software developer Nigeria, web development, mobile apps, React Native, AI, image recognition, Mailify">
+  <meta name="author" content="Umar">
+  <meta name="robots" content="index, follow">
+  
+  <!-- OPEN GRAPH for WhatsApp, Facebook, Google -->
+  <meta property="og:title" content="OSO Tech — Premium Digital Studio">
+  <meta property="og:description" content="Modern digital studio building apps, tools & platforms. Specializing in React Native, AI image recognition, and web development.">
+  <meta property="og:image" content="images/logo.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:url" content="https://osotechs.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OSO Tech">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OSO Tech — Premium Digital Studio">
+  <meta name="twitter:description" content="Modern digital studio building apps, tools & platforms.">
+  <meta name="twitter:image" content="images/logo.png">
+  
+  <!-- FAVICON -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
   <link rel="manifest" href="site.webmanifest">
   
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #0a0a0a;
+      color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      cursor: none;
+    }
+    
+    /* Custom Cursor */
+    .cursor {
+      width: 8px;
+      height: 8px;
+      background: #007AFF;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.1s ease;
+    }
+    
+    .cursor-follower {
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(0, 122, 255, 0.5);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.2s ease;
+    }
+    
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .logo {
+      height: 45px;
+      width: auto;
+    }
+    
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #007AFF;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 100px 24px;
+    }
+    
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .badge {
+      display: inline-block;
+      background: rgba(0, 122, 255, 0.15);
+      color: #007AFF;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      border: 1px solid rgba(0, 122, 255, 0.3);
+    }
+    
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff, #007AFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 16px;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .btn.primary {
+      background: #007AFF;
+      color: #fff;
+      border: none;
+    }
+    
+    .btn.primary:hover {
+      background: #0055CC;
+      transform: translateY(-2px);
+    }
+    
+    .btn.secondary {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .btn.secondary:hover {
+      border-color: #007AFF;
+      background: rgba(0, 122, 255, 0.1);
+    }
+    
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      opacity: 0.6;
+    }
+    
+    .hero-scroll span {
+      font-size: 0.8rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.3);
+      margin: 0 auto;
+    }
+    
+    /* About Section */
+    .about {
+      padding: 100px 0;
+      background: #0f0f0f;
+    }
+    
+    .about-badge {
+      display: inline-block;
+      color: #007AFF;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    
+    .about h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      line-height: 1.2;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    
+    .about-text p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+    
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    
+    .stat {
+      text-align: center;
+      padding: 24px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #007AFF;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    /* Projects Section */
+    .projects {
+      padding: 100px 0;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      color: #007AFF;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+    }
+    
+    .project-card {
+      background: #111;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 122, 255, 0.3);
+    }
+    
+    .project-image {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      padding: 40px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .image-placeholder {
+      font-size: 4rem;
+    }
+    
+    .project-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 20px;
+      margin: 0 auto 15px;
+      display: block;
+      background: #fff;
+      padding: 10px;
+    }
+    
+    .coming-soon-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: bold;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 12px;
+    }
+    
+    .project-info {
+      padding: 24px;
+    }
+    
+    .project-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    
+    .project-info p {
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .project-tags span {
+      background: rgba(0, 122, 255, 0.15);
+      color: #007AFF;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .release-date {
+      margin: 15px 0;
+      padding: 10px 0;
+      border-top: 1px dashed rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+    
+    .release-date strong {
+      color: #FFD700;
+    }
+    
+    .project-link {
+      color: #007AFF;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+    }
+    
+    .project-link:hover {
+      opacity: 0.8;
+    }
+    
+    .disabled-link {
+      opacity: 0.5;
+      cursor: default;
+      pointer-events: none;
+    }
+    
+    /* Contact Section */
+    .contact {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #0a0a0a, #0f0f0f);
+      text-align: center;
+    }
+    
+    .contact-badge {
+      display: inline-block;
+      color: #007AFF;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    
+    .contact h2 {
+      font-size: 3rem;
+      margin-bottom: 40px;
+    }
+    
+    .contact-email, .contact-phone {
+      display: inline-block;
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      margin: 0 20px 30px;
+      padding: 12px 24px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-email:hover, .contact-phone:hover {
+      background: #007AFF;
+      transform: translateY(-2px);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .social-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      color: #007AFF;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px;
+        gap: 20px;
+        transition: left 0.3s ease;
+        z-index: 999;
+      }
+      
+      nav.active {
+        left: 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .about h2 {
+        font-size: 2rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact h2 {
+        font-size: 2rem;
+      }
+      
+      .contact-email, .contact-phone {
+        font-size: 1rem;
+        margin: 0 10px 20px;
+      }
+      
+      .social-links {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Custom cursor (premium touch) -->
+<!-- Custom cursor -->
 <div class="cursor"></div>
 <div class="cursor-follower"></div>
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <img src="images/logo.png" class="logo" alt="OSO Tech Logo">
+  <img src="images/logo.png" loading="lazy" class="logo" alt="OSO Tech Logo">
   <nav>
     <a href="#">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
+  <button class="mobile-menu-btn" aria-label="Menu">☰</button>
 </header>
 
 <!-- HERO -->
@@ -35,10 +609,11 @@
   <div class="hero-content">
     <div class="badge">✦ Umar • Software Developer</div>
     <h1>Build. Create.<br>Innovate.</h1>
+    <p class="subtitle">Modern digital studio building apps, tools & platforms.</p>
     <p>OSO Tech Solutions crafts modern digital experiences<br>with precision and elegance.</p>
     <div class="hero-buttons">
-      <a href="#projects" class="btn primary">View Work →</a>
-      <a href="#contact" class="btn secondary">Let's Talk</a>
+      <a href="#contact" class="btn primary">Start a Project →</a>
+      <a href="#projects" class="btn secondary">View Work</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -47,7 +622,7 @@
   </div>
 </section>
 
-<!-- ABOUT with YOUR NAME -->
+<!-- ABOUT -->
 <section id="about" class="about">
   <div class="container">
     <div class="about-badge">About Me</div>
@@ -56,19 +631,20 @@
       <div class="about-text">
         <p>I'm <strong>Umar</strong>, a software developer passionate about building clean, modern, and high-performance applications. I focus on simplicity, speed, and user experience.</p>
         <p style="margin-top: 20px;">Every pixel is intentional, every interaction meaningful. I build digital products that people actually love to use.</p>
+        <p style="margin-top: 20px;">With expertise in <strong>React Native, AI image recognition, and full-stack development</strong>, I bring ideas to life with precision and elegance.</p>
       </div>
       <div class="about-stats">
         <div class="stat">
-          <div class="stat-number">2</div>
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">3</div>
           <div class="stat-label">Active Projects</div>
         </div>
         <div class="stat">
           <div class="stat-number">1</div>
           <div class="stat-label">VS Code Extension</div>
-        </div>
-        <div class="stat">
-          <div class="stat-number">Building</div>
-          <div class="stat-label">Mailify</div>
         </div>
       </div>
     </div>
@@ -84,37 +660,43 @@
     </div>
 
     <div class="projects-grid">
-      <!-- Spider Screenshot - VS Code Extension with LIVE LINK -->
+      <!-- Spider Screenshot -->
       <div class="project-card">
         <div class="project-image">
           <div class="image-placeholder">🔌</div>
         </div>
         <div class="project-info">
           <h3>Spider Screenshot</h3>
-          <p>VS Code extension for capturing beautiful code screenshots. Published on Marketplace.</p>
+          <p>VS Code extension for capturing beautiful code screenshots. Published on Marketplace with 100+ downloads.</p>
           <div class="project-tags">
             <span>VS Code</span>
             <span>TypeScript</span>
             <span>Extension</span>
           </div>
-          <a href="https://marketplace.visualstudio.com/items?itemName=SpiderDev.spider-screenshot" class="project-link" target="_blank">View on Marketplace →</a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=SpiderDev.spider-screenshot" class="project-link" target="_blank" rel="noopener noreferrer">View on Marketplace →</a>
         </div>
       </div>
 
-      <!-- Mailify - Image Recognition Feature -->
+      <!-- Mailify - UPDATED with Logo and Release Date -->
       <div class="project-card">
         <div class="project-image">
-          <div class="image-placeholder">🔍📷</div>
+          <img src="images/mailify.png" loading="lazy" alt="Mailify Logo" class="project-logo" onerror="this.src='images/logo.png'">
+          <div class="coming-soon-badge">Coming Soon</div>
         </div>
         <div class="project-info">
           <h3>Mailify</h3>
-          <p>ML-powered image recognition tool. Snap a photo of any fabric — instantly find where to buy it.</p>
+          <p>Mailify is an AI-powered marketplace platform that connects fabric sellers with buyers. Snap a photo of any material — our CNN-based image recognition instantly finds matching products. A seamless bridge between local sellers and global buyers.</p>
           <div class="project-tags">
             <span>CNN</span>
             <span>Image Recognition</span>
-            <span>AI</span>
+            <span>React Native</span>
+            <span>Marketplace</span>
           </div>
-          <a href="#contact" class="project-link">Learn more →</a>
+          <div class="release-date">
+            <span class="release-icon">📅</span> 
+            <span class="release-text">Launching: <strong>June 1, 2026</strong> (Insha'Allah)</span>
+          </div>
+          <a href="#" class="project-link disabled-link">Stay Tuned →</a>
         </div>
       </div>
 
@@ -125,13 +707,13 @@
         </div>
         <div class="project-info">
           <h3>OSO App</h3>
-          <p>Social platform with chat, stories and live features. Built for connection.</p>
+          <p>Social platform with chat, stories and live features. Built for connection and community engagement. Available on both iOS and Android.</p>
           <div class="project-tags">
             <span>iOS</span>
             <span>Android</span>
             <span>Real-time</span>
           </div>
-          <a href="#" class="project-link">Learn more →</a>
+          <a href="#contact" class="project-link">Coming Soon →</a>
         </div>
       </div>
     </div>
@@ -143,13 +725,13 @@
   <div class="container">
     <div class="contact-badge">Start a project</div>
     <h2>Let's create something<br>amazing together</h2>
-    <a href="mailto:osotech.dev@gmail.com" class="contact-email">osotech.dev@gmail.com →</a>
-    <a href="tel:+2348135103329" class="contact-phone">+234 813 510 3329 →</a>
+    <div>
+      <a href="mailto:osotech.dev@gmail.com" class="contact-email">osotech.dev@gmail.com →</a>
+      <a href="tel:+2348135103329" class="contact-phone">+234 813 510 3329 →</a>
+    </div>
     <div class="social-links">
-      <a href="#">Twitter</a>
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">GitHub</a>
+      <a href="https://www.tiktok.com/@osotech.co" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://github.com/OmerDev-tech" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </div>
 </section>
@@ -158,6 +740,45 @@
   <p>Built by Umar • OSO Tech • © 2026</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const nav = document.querySelector('nav');
+  
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  }
+  
+  // Close menu when clicking a link
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+    });
+  });
+  
+  // Custom cursor
+  const cursor = document.querySelector('.cursor');
+  const follower = document.querySelector('.cursor-follower');
+  
+  if (cursor && follower) {
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+      follower.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
+    });
+    
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = '0';
+      follower.style.opacity = '0';
+    });
+    
+    document.addEventListener('mouseenter', () => {
+      cursor.style.opacity = '1';
+      follower.style.opacity = '1';
+    });
+  }
+</script>
+
 </body>
 </html>
