@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Mailify Card - OSOTECHS</title>
+    
+    <!-- Deep link meta tags -->
+    <meta property="al:android:app_name" content="Mailify" />
+    <meta property="al:android:package" content="com.osotechs.mailify" />
+    <meta property="al:android:url" content="mailify://card/" />
+    <meta property="al:ios:app_name" content="Mailify" />
+    <meta property="al:ios:app_store_id" content="123456789" />
+    <meta property="al:ios:url" content="mailify://card/" />
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Mailify Card - OSOTECHS" />
+    <meta property="og:description" content="Premium Digital Business Card" />
+    <meta property="og:image" content="https://osotechs.com/mailify/og-image.png" />
+    <meta property="og:url" content="https://osotechs.com/mailify/card/" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 420px;
+            width: 100%;
+            background: #1e293b;
+            border-radius: 24px;
+            padding: 40px 30px;
+            border: 1px solid #334155;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: #3b82f6;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        h1 {
+            color: #f1f5f9;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .card-id {
+            background: #0f172a;
+            border-radius: 12px;
+            padding: 12px;
+            color: #3b82f6;
+            font-family: monospace;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            border: 1px solid #334155;
+        }
+        
+        .profile-preview {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #0f172a;
+            border-radius: 16px;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border: 1px solid #334155;
+        }
+        
+        .profile-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .profile-info {
+            text-align: left;
+        }
+        
+        .profile-info .name {
+            color: #f1f5f9;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .profile-info .title {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 5px;
+        }
+        
+        .btn {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: scale(1.02);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #94a3b8;
+            border: 1px solid #334155;
+        }
+        
+        .btn-outline:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #059669;
+            transform: scale(1.02);
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #475569;
+            font-size: 13px;
+            margin: 15px 0;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #334155;
+        }
+        
+        .footer {
+            margin-top: 25px;
+            color: #475569;
+            font-size: 12px;
+        }
+        
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #334155;
+            border-top-color: #3b82f6;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .status-message {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: #0f172a;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+        
+        .app-icons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        
+        .app-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: #f1f5f9;
+        }
+        
+        .app-icon:hover {
+            border-color: #3b82f6;
+            transform: scale(1.05);
+        }
+        
+        .api-error {
+            background: rgba(239,68,68,0.2);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">📧</div>
+        
+        <!-- Title -->
+        <h1>Mailify Card</h1>
+        <p class="subtitle">Premium Digital Business Card</p>
+        
+        <!-- Card ID -->
+        <div class="card-id" id="cardId">Loading...</div>
+        
+        <!-- Status Message -->
+        <div class="status-message" id="statusMessage">
+            <span class="spinner"></span>
+            <span>Loading card details...</span>
+        </div>
+        
+        <!-- Profile Preview -->
+        <div class="profile-preview">
+            <div class="profile-avatar" id="avatar">U</div>
+            <div class="profile-info">
+                <div class="name" id="userName">Loading...</div>
+                <div class="title" id="userTitle">Business Professional</div>
+            </div>
+        </div>
+        
+        <!-- Buttons -->
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="openApp()">
+                📱 Open in App
+            </button>
+            
+            <div class="divider">or</div>
+            
+            <button class="btn btn-success" onclick="saveContact()">
+                💾 Save Contact
+            </button>
+            
+            <button class="btn btn-outline" onclick="shareCard()">
+                📤 Share Card
+            </button>
+        </div>
+        
+        <!-- Download Apps -->
+        <div class="divider">Download App</div>
+        
+        <div class="app-icons">
+            <a href="#" class="app-icon" title="iOS App">🍎</a>
+            <a href="#" class="app-icon" title="Android App">🤖</a>
+            <a href="#" class="app-icon" title="Web App">🌐</a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Powered by <a href="https://osotechs.com">OSOTECHS</a></p>
+            <p style="margin-top: 5px;">© 2026 Mailify. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get card ID from URL
+        const path = window.location.pathname;
+        const cardId = path.split('/').pop() || 'Unknown';
+        
+        // API URL (your AWS backend)
+        const API_URL = 'https://mailifyapp.duckdns.org/mailify_backend/api/get_card.php';
+        
+        // Update card ID display
+        document.getElementById('cardId').textContent = cardId;
+        
+        // Fetch card details from API
+        async function fetchCardDetails() {
+            try {
+                const response = await fetch(`${API_URL}?card_id=${cardId}`);
+                const data = await response.json();
+                
+                if (data.success && data.card) {
+                    const card = data.card;
+                    
+                    // Update profile info
+                    document.getElementById('userName').textContent = card.full_name || card.username || 'Mailify User';
+                    document.getElementById('userTitle').textContent = card.business_name || card.title || 'Business Professional';
+                    
+                    // Update avatar
+                    const avatar = document.getElementById('avatar');
+                    const name = document.getElementById('userName').textContent;
+                    avatar.textContent = name.charAt(0).toUpperCase();
+                    
+                    // Update status
+                    document.getElementById('statusMessage').innerHTML = `
+                        <span>✅</span>
+                        <span>Card ready! Tap to open in app.</span>
+                    `;
+                    
+                    // Try to open app after loading
+                    setTimeout(openApp, 1000);
+                } else {
+                    document.getElementById('statusMessage').innerHTML = `
+                        <span>⚠️</span>
+                        <span>Card not found. Please check the URL.</span>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error fetching card:', error);
+                document.getElementById('statusMessage').innerHTML = `
+                    <span>⚠️</span>
+                    <span>Could not load card details. Using default.</span>
+                `;
+            }
+        }
+        
+        // Try to open the app
+        function openApp() {
+            const deepLink = `mailify://card/${cardId}`;
+            const androidIntent = `intent://card/${cardId}#Intent;package=com.osotechs.mailify;scheme=mailify;end`;
+            
+            // Try to open the app
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = deepLink;
+            document.body.appendChild(iframe);
+            
+            window.location.href = androidIntent;
+            
+            // Fallback: if app doesn't open, show download after 2.5s
+            setTimeout(() => {
+                document.getElementById('statusMessage').innerHTML = `
+                    <span>📱</span>
+                    <span>App not installed? Download below!</span>
+                `;
+                document.querySelector('.app-icons').style.display = 'flex';
+            }, 2500);
+        }
+        
+        // Save contact (vCard)
+        function saveContact() {
+            const name = document.getElementById('userName').textContent;
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+ORG:OSOTECHS
+TEL:08135103329
+EMAIL:mailifyservice@gmail.com
+URL:https://osotechs.com/mailify/card/${cardId}
+END:VCARD`;
+            
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${cardId}.vcf`;
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            document.getElementById('statusMessage').innerHTML = `
+                <span>✅</span>
+                <span>Contact saved successfully!</span>
+            `;
+        }
+        
+        // Share card
+        function shareCard() {
+            const url = window.location.href;
+            const name = document.getElementById('userName').textContent;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Mailify Card',
+                    text: `Check out my Mailify card: ${name}`,
+                    url: url
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(url).then(() => {
+                    document.getElementById('statusMessage').innerHTML = `
+                        <span>✅</span>
+                        <span>Link copied to clipboard!</span>
+                    `;
+                });
+            }
+        }
+        
+        // Load card details on page load
+        window.onload = function() {
+            fetchCardDetails();
+        };
+    </script>
+
+</body>
+</html>
