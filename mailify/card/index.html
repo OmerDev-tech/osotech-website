@@ -39,9 +39,8 @@
         .error-text { color: #ef4444; }
         .success-text { color: #10b981; }
         .loading-text { color: #3b82f6; }
-        .api-error-box { background: rgba(239,68,68,0.1); border: 1px solid #ef4444; border-radius: 8px; padding: 12px; margin-bottom: 15px; display: none; }
-        .api-error-box .error-title { color: #ef4444; font-weight: bold; font-size: 14px; }
-        .api-error-box .error-detail { color: #94a3b8; font-size: 12px; margin-top: 4px; }
+        .retry-btn { background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 8px; margin-top: 8px; cursor: pointer; font-size: 12px; font-weight: 600; }
+        .retry-btn:hover { background: #2563eb; }
     </style>
 </head>
 <body>
@@ -52,11 +51,6 @@
         <p class="subtitle">Premium Digital Business Card</p>
         
         <div class="card-id" id="cardId">Loading...</div>
-        
-        <div id="apiErrorBox" class="api-error-box">
-            <div class="error-title">⚠️ Connection Error</div>
-            <div class="error-detail" id="errorDetail">Unable to connect to server. Please check your internet connection.</div>
-        </div>
         
         <div class="status-message" id="statusMessage">
             <span class="spinner"></span>
@@ -114,14 +108,11 @@
         
         const cardId = getCardId();
         
-        // Try HTTPS first, fallback to HTTP
-        const API_URLS = [
-            'https://mailifyapp.duckdns.org/mailify_backend/api/get_card.php',
-            'http://mailifyapp.duckdns.org/mailify_backend/api/get_card.php'
-        ];
+        // USE HTTP (since HTTPS is not configured)
+        const API_URL = 'http://mailifyapp.duckdns.org/mailify_backend/api/get_card.php';
         
         // ============================================
-        // FETCH CARD DETAILS WITH FALLBACK
+        // FETCH CARD DETAILS
         // ============================================
         async function fetchCardDetails() {
             const cardIdEl = document.getElementById('cardId');
@@ -129,8 +120,6 @@
             const nameEl = document.getElementById('userName');
             const titleEl = document.getElementById('userTitle');
             const avatarEl = document.getElementById('avatar');
-            const errorBox = document.getElementById('apiErrorBox');
-            const errorDetail = document.getElementById('errorDetail');
             
             cardIdEl.textContent = cardId;
             
@@ -139,96 +128,89 @@
                 return;
             }
             
-            // Try each API URL
-            let lastError = null;
-            
-            for (const apiUrl of API_URLS) {
-                try {
-                    console.log('Fetching card:', cardId);
-                    console.log('API URL:', `${apiUrl}?card_id=${encodeURIComponent(cardId)}`);
-                    
-                    const response = await fetch(`${apiUrl}?card_id=${encodeURIComponent(cardId)}`, {
-                        method: 'GET',
-                        headers: {
-                            'Accept': 'application/json',
-                        },
-                    });
-                    
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    
-                    const data = await response.json();
-                    console.log('API Response:', data);
-                    
-                    // Hide error box on success
-                    errorBox.style.display = 'none';
-                    
-                    if (data.success && data.card) {
-                        const card = data.card;
-                        
-                        // Use user data from the 'user' object or from card root
-                        const userData = card.user || card;
-                        
-                        // Display name
-                        const displayName = userData.display_name || userData.business_name || userData.full_name || userData.username || 'Mailify User';
-                        nameEl.textContent = displayName;
-                        
-                        // Title
-                        const userTitle = userData.title || userData.business_type || 'Business Professional';
-                        titleEl.textContent = userTitle;
-                        
-                        // Avatar
-                        avatarEl.textContent = displayName.charAt(0).toUpperCase();
-                        
-                        // Profile image
-                        if (userData.profile_image) {
-                            avatarEl.style.backgroundImage = `url(${userData.profile_image})`;
-                            avatarEl.style.backgroundSize = 'cover';
-                            avatarEl.style.backgroundPosition = 'center';
-                            avatarEl.textContent = '';
-                        }
-                        
-                        // Status
-                        const isActive = card.status === 'active';
-                        statusEl.innerHTML = `
-                            <span>${isActive ? '✅' : '⏳'}</span>
-                            <span class="${isActive ? 'success-text' : 'loading-text'}">
-                                ${isActive ? 'Card ready! Tap to open in app.' : 'Card pending activation.'}
-                            </span>
-                        `;
-                        
-                        if (isActive) {
-                            setTimeout(openApp, 1500);
-                        }
-                        
-                        return; // Success - exit the loop
-                    } else {
-                        statusEl.innerHTML = `
-                            <span>⚠️</span>
-                            <span class="error-text">${data.message || 'Card not found'}</span>
-                        `;
-                        nameEl.textContent = 'Card Not Found';
-                        titleEl.textContent = 'Please check the card ID';
-                        return;
-                    }
-                } catch (error) {
-                    console.error(`Error with API URL ${apiUrl}:`, error);
-                    lastError = error;
-                    // Continue to next API URL
-                }
-            }
-            
-            // All APIs failed
-            errorBox.style.display = 'block';
-            errorDetail.textContent = `Failed to connect to server. Please check your internet connection and try again.`;
-            
+            // Show loading
             statusEl.innerHTML = `
-                <span>⚠️</span>
-                <span class="error-text">Could not load card details. Please try again.</span>
+                <span class="spinner"></span>
+                <span class="loading-text">Loading card details...</span>
             `;
-            nameEl.textContent = 'Connection Error';
-            titleEl.textContent = 'Check your internet connection';
+            
+            try {
+                console.log('Fetching card:', cardId);
+                console.log('API URL:', `${API_URL}?card_id=${encodeURIComponent(cardId)}`);
+                
+                const response = await fetch(`${API_URL}?card_id=${encodeURIComponent(cardId)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                    },
+                });
+                
+                console.log('Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('API Response:', data);
+                
+                if (data.success && data.card) {
+                    const card = data.card;
+                    const userData = card.user || card;
+                    
+                    // Display name
+                    const displayName = userData.display_name || userData.business_name || userData.full_name || userData.username || 'Mailify User';
+                    nameEl.textContent = displayName;
+                    
+                    // Title
+                    const userTitle = userData.title || userData.business_type || 'Business Professional';
+                    titleEl.textContent = userTitle;
+                    
+                    // Avatar
+                    avatarEl.textContent = displayName.charAt(0).toUpperCase();
+                    
+                    // Profile image
+                    if (userData.profile_image) {
+                        avatarEl.style.backgroundImage = `url(${userData.profile_image})`;
+                        avatarEl.style.backgroundSize = 'cover';
+                        avatarEl.style.backgroundPosition = 'center';
+                        avatarEl.textContent = '';
+                    }
+                    
+                    // Status
+                    const isActive = card.status === 'active';
+                    statusEl.innerHTML = `
+                        <span>${isActive ? '✅' : '⏳'}</span>
+                        <span class="${isActive ? 'success-text' : 'loading-text'}">
+                            ${isActive ? 'Card ready! Tap to open in app.' : 'Card pending activation.'}
+                        </span>
+                    `;
+                    
+                    if (isActive) {
+                        setTimeout(openApp, 1500);
+                    }
+                } else {
+                    statusEl.innerHTML = `
+                        <span>⚠️</span>
+                        <span class="error-text">${data.message || 'Card not found'}</span>
+                    `;
+                    nameEl.textContent = 'Card Not Found';
+                    titleEl.textContent = 'Please check the card ID';
+                }
+            } catch (error) {
+                console.error('Error fetching card:', error);
+                statusEl.innerHTML = `
+                    <span>⚠️</span>
+                    <span class="error-text">Could not load card details.</span>
+                `;
+                nameEl.textContent = 'Connection Error';
+                titleEl.textContent = 'Please try again';
+                
+                // Show retry button
+                setTimeout(() => {
+                    statusEl.innerHTML += `<br><button class="retry-btn" onclick="fetchCardDetails()">🔄 Retry</button>`;
+                }, 1000);
+            }
         }
         
         // ============================================
@@ -278,7 +260,7 @@ END:VCARD`;
             URL.revokeObjectURL(url);
             
             const statusEl = document.getElementById('statusMessage');
-            statusEl.innerHTML = `<span>✅</span><span class="success-text">Contact saved successfully!</span>`;
+            statusEl.innerHTML = `<span>✅</span><span class="success-text">Contact saved!</span>`;
         }
         
         // ============================================
@@ -297,7 +279,7 @@ END:VCARD`;
             } else {
                 navigator.clipboard.writeText(url).then(() => {
                     const statusEl = document.getElementById('statusMessage');
-                    statusEl.innerHTML = `<span>✅</span><span class="success-text">Link copied to clipboard!</span>`;
+                    statusEl.innerHTML = `<span>✅</span><span class="success-text">Link copied!</span>`;
                 });
             }
         }
