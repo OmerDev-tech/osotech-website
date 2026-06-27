@@ -4,7 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Mailify Card - OSOTECHS</title>
-    
+
+    <!-- ============================================ -->
+    <!-- SEO & META TAGS -->
+    <!-- ============================================ -->
+    <meta name="description" content="Mailify Card - Premium Digital Business Card. Share your professional profile with anyone, anywhere.">
+    <meta name="keywords" content="Mailify, digital business card, business card, networking, OSO TECHS, professional profile">
+    <meta name="author" content="OSO TECHS">
+    <meta name="robots" content="index, follow">
+
+    <!-- OPEN GRAPH for WhatsApp, Facebook, Google -->
+    <meta property="og:title" content="Mailify Card - Premium Digital Business Card">
+    <meta property="og:description" content="Share your professional profile with Mailify Card. Digital business cards made simple.">
+    <meta property="og:image" content="https://osotechs.com/images/mailify.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:url" content="https://osotechs.com/mailify/card/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mailify Card">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mailify Card - Premium Digital Business Card">
+    <meta name="twitter:description" content="Share your professional profile with Mailify Card.">
+    <meta name="twitter:image" content="https://osotechs.com/images/mailify.png">
+
+    <!-- ============================================ -->
+    <!-- FAVICON -->
+    <!-- ============================================ -->
+    <link rel="icon" type="image/png" sizes="32x32" href="https://osotechs.com/images/mailify.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://osotechs.com/images/mailify.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://osotechs.com/images/mailify.png">
+    <link rel="manifest" href="site.webmanifest">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         body { background: #0f172a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
@@ -38,6 +71,7 @@
         .app-icon { width: 48px; height: 48px; border-radius: 12px; background: #0f172a; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s; text-decoration: none; color: #f1f5f9; }
         .app-icon:hover { border-color: #3b82f6; transform: scale(1.05); }
         .api-error { background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #ef4444; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 13px; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
@@ -71,9 +105,9 @@
         
         <div class="divider">Download App</div>
         <div class="app-icons">
-            <a href="#" class="app-icon" title="iOS App">🍎</a>
-            <a href="#" class="app-icon" title="Android App">🤖</a>
-            <a href="#" class="app-icon" title="Web App">🌐</a>
+            <a href="https://apps.apple.com/app/mailify" class="app-icon" title="iOS App">🍎</a>
+            <a href="https://play.google.com/store/apps/details?id=com.mailify.app" class="app-icon" title="Android App">🤖</a>
+            <a href="https://osotechs.com" class="app-icon" title="Web App">🌐</a>
         </div>
         
         <div class="footer">
@@ -85,17 +119,14 @@
     <script>
         // Get card ID from URL query parameter or path
         function getCardId() {
-            // Check query parameter first
             const urlParams = new URLSearchParams(window.location.search);
             let id = urlParams.get('id');
             
-            // If no query param, try to get from path
             if (!id) {
                 const path = window.location.pathname;
                 const segments = path.split('/').filter(s => s);
                 const lastSegment = segments[segments.length - 1];
                 
-                // Check if the last segment looks like a card ID (starts with MF-)
                 if (lastSegment && lastSegment.startsWith('MF-')) {
                     id = lastSegment;
                 } else {
@@ -109,10 +140,8 @@
         const cardId = getCardId();
         const API_URL = 'https://mailifyapp.duckdns.org/mailify_backend/api/get_card.php';
         
-        // Update card ID display
         document.getElementById('cardId').textContent = cardId;
         
-        // Fetch card details from API
         async function fetchCardDetails() {
             try {
                 if (cardId === 'unknown') {
@@ -159,7 +188,7 @@
         
         function openApp() {
             const deepLink = `mailify://card/${cardId}`;
-            const androidIntent = `intent://card/${cardId}#Intent;package=com.osotechs.mailify;scheme=mailify;end`;
+            const androidIntent = `intent://card/${cardId}#Intent;package=com.mailify.app;scheme=mailify;end`;
             
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
@@ -185,7 +214,7 @@ FN:${name}
 ORG:OSOTECHS
 TEL:08135103329
 EMAIL:mailifyservice@gmail.com
-URL:https://osotechs.com/mailify/card/${cardId}
+URL:https://osotechs.com/mailify/card/index.html?id=${cardId}
 END:VCARD`;
             
             const blob = new Blob([vcard], { type: 'text/vcard' });
