@@ -9,19 +9,45 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         body { background: #0f172a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
         .container { max-width: 420px; width: 100%; background: #1e293b; border-radius: 24px; padding: 40px 30px; border: 1px solid #334155; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        
+        /* Logo & Header */
         .logo { width: 80px; height: 80px; background: #3b82f6; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 32px; font-weight: 700; color: white; }
+        .logo.gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); }
         h1 { color: #f1f5f9; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .h1-gold { color: #D4AF37; }
         .subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 30px; }
         .card-id { background: #0f172a; border-radius: 12px; padding: 12px; color: #3b82f6; font-family: monospace; font-size: 18px; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid #334155; }
+        .card-id-gold { color: #D4AF37; border-color: rgba(212,175,55,0.3); background: rgba(212,175,55,0.05); }
+        
+        /* Premium Badge */
+        .premium-badge { display: inline-block; background: linear-gradient(135deg, #D4AF37, #F5D76E); color: #0f172a; padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .status-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .status-active { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+        .status-inactive { background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+        
+        /* Profile Preview */
         .profile-preview { display: flex; align-items: center; gap: 15px; background: #0f172a; border-radius: 16px; padding: 15px 20px; margin-bottom: 25px; border: 1px solid #334155; }
+        .profile-preview-gold { border-color: rgba(212,175,55,0.3); background: rgba(212,175,55,0.05); }
         .profile-avatar { width: 56px; height: 56px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: white; flex-shrink: 0; }
+        .profile-avatar-gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); border: 2px solid #D4AF37; }
         .profile-info { text-align: left; }
         .profile-info .name { color: #f1f5f9; font-size: 18px; font-weight: 600; }
+        .profile-info .name-gold { color: #D4AF37; }
         .profile-info .title { color: #94a3b8; font-size: 14px; }
+        .profile-info .title-gold { color: #F5D76E; }
+        
+        /* Card Display (for inactive) */
+        .card-display { background: #0f172a; border-radius: 16px; padding: 30px 20px; border: 1px solid #334155; margin-bottom: 25px; }
+        .card-display .card-number { font-size: 24px; font-weight: 700; color: #3b82f6; font-family: monospace; letter-spacing: 4px; margin-bottom: 8px; }
+        .card-display .card-label { color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        /* Buttons */
         .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
         .btn { padding: 14px 20px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .btn-primary { background: #3b82f6; color: white; }
         .btn-primary:hover { background: #2563eb; transform: scale(1.02); }
+        .btn-gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); color: #0f172a; }
+        .btn-gold:hover { transform: scale(1.02); }
         .btn-outline { background: transparent; color: #94a3b8; border: 1px solid #334155; }
         .btn-outline:hover { border-color: #3b82f6; color: #3b82f6; }
         .btn-success { background: #10b981; color: white; }
@@ -39,32 +65,95 @@
         .error-text { color: #ef4444; }
         .success-text { color: #10b981; }
         .loading-text { color: #3b82f6; }
-        .retry-btn { background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 8px; margin-top: 8px; cursor: pointer; font-size: 12px; font-weight: 600; }
-        .retry-btn:hover { background: #2563eb; }
+        .gold-text { color: #D4AF37; }
+        .hidden { display: none !important; }
+        
+        /* Location & Description */
+        .location { color: #94a3b8; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; margin: 12px 0; }
+        .description { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 12px 0; }
+        .premium-stats { display: flex; gap: 12px; margin: 16px 0; }
+        .premium-stat { flex: 1; background: #0f172a; border-radius: 12px; padding: 12px; border: 1px solid #334155; }
+        .premium-stat .number { color: #D4AF37; font-size: 20px; font-weight: 700; }
+        .premium-stat .label { color: #94a3b8; font-size: 11px; margin-top: 2px; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="logo">📧</div>
-        <h1>Mailify Card</h1>
-        <p class="subtitle">Premium Digital Business Card</p>
+        <!-- Logo -->
+        <div class="logo" id="logo">📧</div>
+        <h1 id="pageTitle">Mailify Card</h1>
+        <p class="subtitle" id="pageSubtitle">Premium Digital Business Card</p>
         
+        <!-- Card ID -->
         <div class="card-id" id="cardId">Loading...</div>
         
+        <!-- Status -->
         <div class="status-message" id="statusMessage">
             <span class="spinner"></span>
             <span>Loading card details...</span>
         </div>
         
-        <div class="profile-preview" id="profilePreview">
-            <div class="profile-avatar" id="avatar">U</div>
-            <div class="profile-info">
-                <div class="name" id="userName">Loading...</div>
-                <div class="title" id="userTitle">Business Professional</div>
+        <!-- ============================================ -->
+        <!-- INACTIVE CARD VIEW (Just shows card)          -->
+        <!-- ============================================ -->
+        <div id="inactiveView">
+            <div class="card-display">
+                <div class="card-label">Card Number</div>
+                <div class="card-number" id="cardNumber">MF-XXXXXX</div>
+                <div style="margin-top: 8px;">
+                    <span class="status-badge status-inactive">⏳ Not Activated</span>
+                </div>
+                <div style="margin-top: 12px; color: #64748b; font-size: 12px;">
+                    Activate your card in the Mailify app
+                </div>
             </div>
         </div>
         
+        <!-- ============================================ -->
+        <!-- ACTIVE CARD VIEW (Shows full profile)         -->
+        <!-- ============================================ -->
+        <div id="activeView" class="hidden">
+            <!-- Premium Badge -->
+            <div class="premium-badge">💎 Premium Card</div>
+            
+            <!-- Profile Preview -->
+            <div class="profile-preview profile-preview-gold" id="profilePreview">
+                <div class="profile-avatar profile-avatar-gold" id="avatar">U</div>
+                <div class="profile-info">
+                    <div class="name name-gold" id="userName">Loading...</div>
+                    <div class="title title-gold" id="userTitle">Business Professional</div>
+                </div>
+            </div>
+            
+            <!-- Location -->
+            <div class="location" id="locationDisplay">
+                <span>📍</span> <span id="locationText">Loading location...</span>
+            </div>
+            
+            <!-- Description -->
+            <div class="description" id="descriptionText"></div>
+            
+            <!-- Premium Stats -->
+            <div class="premium-stats">
+                <div class="premium-stat">
+                    <div class="number" id="scanCount">0</div>
+                    <div class="label">Scans</div>
+                </div>
+                <div class="premium-stat">
+                    <div class="number" id="viewCount">0</div>
+                    <div class="label">Views</div>
+                </div>
+                <div class="premium-stat">
+                    <div class="number" id="clickCount">0</div>
+                    <div class="label">Clicks</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- BUTTONS                                       -->
+        <!-- ============================================ -->
         <div class="btn-group">
             <button class="btn btn-primary" onclick="openApp()">📱 Open in App</button>
             <div class="divider">or</div>
@@ -72,6 +161,7 @@
             <button class="btn btn-outline" onclick="shareCard()">📤 Share Card</button>
         </div>
         
+        <!-- Download App -->
         <div class="divider">Download App</div>
         <div class="app-icons">
             <a href="#" class="app-icon" title="iOS App">🍎</a>
@@ -107,45 +197,54 @@
         }
         
         const cardId = getCardId();
-        
-        // USE HTTP (since HTTPS is not configured)
         const API_URL = 'http://mailifyapp.duckdns.org/mailify_backend/api/get_card.php';
+        
+        // ============================================
+        // ELEMENTS
+        // ============================================
+        const elements = {
+            cardId: document.getElementById('cardId'),
+            status: document.getElementById('statusMessage'),
+            logo: document.getElementById('logo'),
+            pageTitle: document.getElementById('pageTitle'),
+            pageSubtitle: document.getElementById('pageSubtitle'),
+            inactiveView: document.getElementById('inactiveView'),
+            activeView: document.getElementById('activeView'),
+            cardNumber: document.getElementById('cardNumber'),
+            avatar: document.getElementById('avatar'),
+            userName: document.getElementById('userName'),
+            userTitle: document.getElementById('userTitle'),
+            locationText: document.getElementById('locationText'),
+            descriptionText: document.getElementById('descriptionText'),
+            scanCount: document.getElementById('scanCount'),
+            viewCount: document.getElementById('viewCount'),
+            clickCount: document.getElementById('clickCount'),
+        };
         
         // ============================================
         // FETCH CARD DETAILS
         // ============================================
         async function fetchCardDetails() {
-            const cardIdEl = document.getElementById('cardId');
-            const statusEl = document.getElementById('statusMessage');
-            const nameEl = document.getElementById('userName');
-            const titleEl = document.getElementById('userTitle');
-            const avatarEl = document.getElementById('avatar');
-            
-            cardIdEl.textContent = cardId;
+            // Show card ID
+            elements.cardId.textContent = cardId;
             
             if (cardId === 'unknown') {
-                statusEl.innerHTML = `<span>⚠️</span><span>Invalid card URL</span>`;
+                elements.status.innerHTML = `<span>⚠️</span><span>Invalid card URL</span>`;
                 return;
             }
             
             // Show loading
-            statusEl.innerHTML = `
+            elements.status.innerHTML = `
                 <span class="spinner"></span>
                 <span class="loading-text">Loading card details...</span>
             `;
             
             try {
                 console.log('Fetching card:', cardId);
-                console.log('API URL:', `${API_URL}?card_id=${encodeURIComponent(cardId)}`);
+                const fullUrl = `${API_URL}?card_id=${encodeURIComponent(cardId)}`;
+                console.log('API URL:', fullUrl);
                 
-                const response = await fetch(`${API_URL}?card_id=${encodeURIComponent(cardId)}`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                    },
-                });
-                
-                console.log('Response status:', response.status);
+                const response = await fetch(fullUrl);
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -156,61 +255,130 @@
                 
                 if (data.success && data.card) {
                     const card = data.card;
-                    const userData = card.user || card;
-                    
-                    // Display name
-                    const displayName = userData.display_name || userData.business_name || userData.full_name || userData.username || 'Mailify User';
-                    nameEl.textContent = displayName;
-                    
-                    // Title
-                    const userTitle = userData.title || userData.business_type || 'Business Professional';
-                    titleEl.textContent = userTitle;
-                    
-                    // Avatar
-                    avatarEl.textContent = displayName.charAt(0).toUpperCase();
-                    
-                    // Profile image
-                    if (userData.profile_image) {
-                        avatarEl.style.backgroundImage = `url(${userData.profile_image})`;
-                        avatarEl.style.backgroundSize = 'cover';
-                        avatarEl.style.backgroundPosition = 'center';
-                        avatarEl.textContent = '';
-                    }
-                    
-                    // Status
+                    const user = card.user || {};
                     const isActive = card.status === 'active';
-                    statusEl.innerHTML = `
-                        <span>${isActive ? '✅' : '⏳'}</span>
-                        <span class="${isActive ? 'success-text' : 'loading-text'}">
-                            ${isActive ? 'Card ready! Tap to open in app.' : 'Card pending activation.'}
-                        </span>
-                    `;
+                    
+                    // Update card number
+                    elements.cardNumber.textContent = card.unique_id || cardId;
                     
                     if (isActive) {
-                        setTimeout(openApp, 1500);
+                        // ============================================
+                        // ACTIVE CARD - Show full profile
+                        // ============================================
+                        showActiveView(card, user);
+                    } else {
+                        // ============================================
+                        // INACTIVE CARD - Just show card
+                        // ============================================
+                        showInactiveView(card);
                     }
                 } else {
-                    statusEl.innerHTML = `
+                    elements.status.innerHTML = `
                         <span>⚠️</span>
                         <span class="error-text">${data.message || 'Card not found'}</span>
                     `;
-                    nameEl.textContent = 'Card Not Found';
-                    titleEl.textContent = 'Please check the card ID';
+                    // Show inactive view by default
+                    elements.inactiveView.style.display = 'block';
+                    elements.activeView.classList.add('hidden');
                 }
             } catch (error) {
                 console.error('Error fetching card:', error);
-                statusEl.innerHTML = `
+                elements.status.innerHTML = `
                     <span>⚠️</span>
-                    <span class="error-text">Could not load card details.</span>
+                    <span class="error-text">Could not load card details. Please try again.</span>
                 `;
-                nameEl.textContent = 'Connection Error';
-                titleEl.textContent = 'Please try again';
-                
-                // Show retry button
-                setTimeout(() => {
-                    statusEl.innerHTML += `<br><button class="retry-btn" onclick="fetchCardDetails()">🔄 Retry</button>`;
-                }, 1000);
+                elements.inactiveView.style.display = 'block';
+                elements.activeView.classList.add('hidden');
             }
+        }
+        
+        // ============================================
+        // SHOW ACTIVE VIEW
+        // ============================================
+        function showActiveView(card, user) {
+            // Hide inactive, show active
+            elements.inactiveView.style.display = 'none';
+            elements.activeView.classList.remove('hidden');
+            
+            // Update logo
+            elements.logo.classList.add('gold');
+            elements.logo.textContent = '💎';
+            
+            // Update title
+            elements.pageTitle.classList.add('h1-gold');
+            elements.pageTitle.textContent = 'Premium Card';
+            elements.pageSubtitle.textContent = 'Active Digital Business Card';
+            
+            // Update card ID
+            elements.cardId.classList.add('card-id-gold');
+            
+            // Status
+            elements.status.innerHTML = `
+                <span>✅</span>
+                <span class="success-text">Card is Active</span>
+            `;
+            
+            // Profile
+            const displayName = user.display_name || user.business_name || user.full_name || user.username || 'Mailify User';
+            elements.userName.textContent = displayName;
+            elements.userTitle.textContent = user.title || user.business_type || 'Business Professional';
+            elements.avatar.textContent = displayName.charAt(0).toUpperCase();
+            
+            // Profile image
+            if (user.profile_image) {
+                elements.avatar.style.backgroundImage = `url(${user.profile_image})`;
+                elements.avatar.style.backgroundSize = 'cover';
+                elements.avatar.style.backgroundPosition = 'center';
+                elements.avatar.textContent = '';
+            }
+            
+            // Location
+            const locationParts = [];
+            if (user.city) locationParts.push(user.city);
+            if (user.state) locationParts.push(user.state);
+            if (user.country) locationParts.push(user.country);
+            elements.locationText.textContent = locationParts.length > 0 ? locationParts.join(', ') : 'Location not set';
+            
+            // Description
+            elements.descriptionText.textContent = user.description || 'No description available.';
+            
+            // Stats
+            elements.scanCount.textContent = card.total_scans || 0;
+            elements.viewCount.textContent = card.total_profile_views || 0;
+            elements.clickCount.textContent = card.total_clicks || 0;
+            
+            // Auto open app after 2 seconds
+            setTimeout(openApp, 2000);
+        }
+        
+        // ============================================
+        // SHOW INACTIVE VIEW
+        // ============================================
+        function showInactiveView(card) {
+            // Show inactive, hide active
+            elements.inactiveView.style.display = 'block';
+            elements.activeView.classList.add('hidden');
+            
+            // Reset logo
+            elements.logo.classList.remove('gold');
+            elements.logo.textContent = '📧';
+            
+            // Reset title
+            elements.pageTitle.classList.remove('h1-gold');
+            elements.pageTitle.textContent = 'Mailify Card';
+            elements.pageSubtitle.textContent = 'Premium Digital Business Card';
+            
+            // Reset card ID
+            elements.cardId.classList.remove('card-id-gold');
+            
+            // Update card number
+            elements.cardNumber.textContent = card.unique_id || cardId;
+            
+            // Status
+            elements.status.innerHTML = `
+                <span>⏳</span>
+                <span class="loading-text">Card pending activation. Activate in the Mailify app.</span>
+            `;
         }
         
         // ============================================
