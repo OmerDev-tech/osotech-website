@@ -5,35 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Mailify Card - OSOTECHS</title>
 
-    <!-- SEO & META TAGS -->
-    <meta name="description" content="Mailify Card - Premium Digital Business Card. Share your professional profile with anyone, anywhere.">
-    <meta name="keywords" content="Mailify, digital business card, business card, networking, OSO TECHS, professional profile">
-    <meta name="author" content="OSO TECHS">
-    <meta name="robots" content="index, follow">
-
-    <!-- OPEN GRAPH for WhatsApp, Facebook, Google -->
-    <meta property="og:title" content="Mailify Card - Premium Digital Business Card">
-    <meta property="og:description" content="Share your professional profile with Mailify Card. Digital business cards made simple.">
-    <meta property="og:image" content="https://osotechs.com/images/mailify.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
-    <meta property="og:url" content="https://osotechs.com/mailify/card/index.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Mailify Card">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mailify Card - Premium Digital Business Card">
-    <meta name="twitter:description" content="Share your professional profile with Mailify Card.">
-    <meta name="twitter:image" content="https://osotechs.com/images/mailify.png">
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" sizes="32x32" href="https://osotechs.com/images/mailify.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://osotechs.com/images/mailify.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://osotechs.com/images/mailify.png">
-    <link rel="manifest" href="site.webmanifest">
-
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         body { background: #0f172a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
@@ -42,14 +13,11 @@
         h1 { color: #f1f5f9; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
         .subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 30px; }
         .card-id { background: #0f172a; border-radius: 12px; padding: 12px; color: #3b82f6; font-family: monospace; font-size: 18px; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid #334155; }
-        
         .profile-preview { display: flex; align-items: center; gap: 15px; background: #0f172a; border-radius: 16px; padding: 15px 20px; margin-bottom: 25px; border: 1px solid #334155; }
         .profile-avatar { width: 56px; height: 56px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: white; flex-shrink: 0; }
         .profile-info { text-align: left; }
         .profile-info .name { color: #f1f5f9; font-size: 18px; font-weight: 600; }
         .profile-info .title { color: #94a3b8; font-size: 14px; }
-        .profile-info .phone { color: #64748b; font-size: 13px; margin-top: 4px; }
-        
         .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
         .btn { padding: 14px 20px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .btn-primary { background: #3b82f6; color: white; }
@@ -62,19 +30,15 @@
         .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #334155; }
         .footer { margin-top: 25px; color: #475569; font-size: 12px; }
         .footer a { color: #3b82f6; text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
         .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid #334155; border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
         .status-message { display: flex; align-items: center; justify-content: center; gap: 10px; color: #94a3b8; font-size: 14px; margin-bottom: 20px; padding: 12px; background: #0f172a; border-radius: 10px; border: 1px solid #334155; }
         .app-icons { display: flex; gap: 12px; justify-content: center; margin: 10px 0; }
         .app-icon { width: 48px; height: 48px; border-radius: 12px; background: #0f172a; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s; text-decoration: none; color: #f1f5f9; }
         .app-icon:hover { border-color: #3b82f6; transform: scale(1.05); }
-        .hidden { display: none; }
         .error-text { color: #ef4444; }
         .success-text { color: #10b981; }
         .loading-text { color: #3b82f6; }
-        .badge { display: inline-block; background: #10b981; color: white; font-size: 11px; padding: 2px 10px; border-radius: 12px; margin-left: 8px; }
-        .badge-inactive { background: #f59e0b; }
     </style>
 </head>
 <body>
@@ -96,7 +60,6 @@
             <div class="profile-info">
                 <div class="name" id="userName">Loading...</div>
                 <div class="title" id="userTitle">Business Professional</div>
-                <div class="phone" id="userPhone"></div>
             </div>
         </div>
         
@@ -132,18 +95,17 @@
                 const path = window.location.pathname;
                 const segments = path.split('/').filter(s => s);
                 const lastSegment = segments[segments.length - 1];
-                
                 if (lastSegment && (lastSegment.startsWith('MF-') || lastSegment.startsWith('MC-'))) {
                     id = lastSegment;
                 } else {
                     id = 'unknown';
                 }
             }
-            
             return id;
         }
         
         const cardId = getCardId();
+        // ✅ CORRECT API URL
         const API_URL = 'https://mailifyapp.duckdns.org/mailify_backend/api/get_card.php';
         
         // ============================================
@@ -154,9 +116,7 @@
             const statusEl = document.getElementById('statusMessage');
             const nameEl = document.getElementById('userName');
             const titleEl = document.getElementById('userTitle');
-            const phoneEl = document.getElementById('userPhone');
             const avatarEl = document.getElementById('avatar');
-            const profilePreview = document.getElementById('profilePreview');
             
             cardIdEl.textContent = cardId;
             
@@ -167,75 +127,59 @@
             
             try {
                 console.log('Fetching card:', cardId);
+                console.log('API URL:', `${API_URL}?card_id=${encodeURIComponent(cardId)}`);
                 
                 const response = await fetch(`${API_URL}?card_id=${encodeURIComponent(cardId)}`);
-                const data = await response.json();
                 
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
                 console.log('API Response:', data);
                 
                 if (data.success && data.card) {
                     const card = data.card;
                     
-                    // User name
-                    const displayName = card.display_name || card.business_name || card.full_name || card.username || 'Mailify User';
+                    // Use user data from the 'user' object or from card root
+                    const userData = card.user || card;
+                    
+                    // Display name
+                    const displayName = userData.display_name || userData.business_name || userData.full_name || userData.username || 'Mailify User';
                     nameEl.textContent = displayName;
                     
                     // Title
-                    const userTitle = card.business_type || card.title || 'Business Professional';
+                    const userTitle = userData.title || userData.business_type || 'Business Professional';
                     titleEl.textContent = userTitle;
                     
-                    // Phone
-                    if (card.business_phone || card.phone) {
-                        phoneEl.textContent = '📞 ' + (card.business_phone || card.phone);
-                    } else {
-                        phoneEl.textContent = '';
-                    }
-                    
-                    // Avatar (first letter)
-                    const avatar = avatarEl;
-                    avatar.textContent = displayName.charAt(0).toUpperCase();
+                    // Avatar
+                    avatarEl.textContent = displayName.charAt(0).toUpperCase();
                     
                     // Profile image
-                    if (card.profile_image) {
-                        avatarEl.style.backgroundImage = `url(${card.profile_image})`;
+                    if (userData.profile_image) {
+                        avatarEl.style.backgroundImage = `url(${userData.profile_image})`;
                         avatarEl.style.backgroundSize = 'cover';
+                        avatarEl.style.backgroundPosition = 'center';
                         avatarEl.textContent = '';
                     }
                     
-                    // Status message
+                    // Status
                     const isActive = card.status === 'active';
-                    const statusText = isActive ? 'Card ready! Tap to open in app.' : 'Card pending activation.';
                     statusEl.innerHTML = `
                         <span>${isActive ? '✅' : '⏳'}</span>
-                        <span class="${isActive ? 'success-text' : 'loading-text'}">${statusText}</span>
+                        <span class="${isActive ? 'success-text' : 'loading-text'}">
+                            ${isActive ? 'Card ready! Tap to open in app.' : 'Card pending activation.'}
+                        </span>
                     `;
                     
-                    // Badge
-                    if (isActive) {
-                        const badge = document.createElement('span');
-                        badge.className = 'badge';
-                        badge.textContent = '✅ Active';
-                        nameEl.parentNode.appendChild(badge);
-                    } else {
-                        const badge = document.createElement('span');
-                        badge.className = 'badge badge-inactive';
-                        badge.textContent = '⏳ Pending';
-                        nameEl.parentNode.appendChild(badge);
-                    }
-                    
-                    // Show profile
-                    profilePreview.style.display = 'flex';
-                    
-                    // Auto-open app after 1.5s if active
                     if (isActive) {
                         setTimeout(openApp, 1500);
                     }
                 } else {
                     statusEl.innerHTML = `
                         <span>⚠️</span>
-                        <span class="error-text">Card not found. Please check the URL.</span>
+                        <span class="error-text">${data.message || 'Card not found'}</span>
                     `;
-                    profilePreview.style.display = 'flex';
                     nameEl.textContent = 'Card Not Found';
                     titleEl.textContent = 'Please check the card ID';
                 }
@@ -243,11 +187,10 @@
                 console.error('Error fetching card:', error);
                 statusEl.innerHTML = `
                     <span>⚠️</span>
-                    <span class="error-text">Could not load card details.</span>
+                    <span class="error-text">Could not load card details. Please try again.</span>
                 `;
-                profilePreview.style.display = 'flex';
                 nameEl.textContent = 'Error Loading';
-                titleEl.textContent = 'Please try again later';
+                titleEl.textContent = 'Check your internet connection';
             }
         }
         
@@ -280,12 +223,11 @@
         // ============================================
         function saveContact() {
             const name = document.getElementById('userName').textContent;
-            const phone = document.getElementById('userPhone').textContent.replace('📞 ', '');
             const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${name}
 ORG:OSOTECHS
-TEL:${phone || '08135103329'}
+TEL:08135103329
 EMAIL:mailifyservice@gmail.com
 URL:https://osotechs.com/mailify/card/index.html?id=${cardId}
 END:VCARD`;
