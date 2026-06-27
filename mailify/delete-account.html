@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Mailify Card - OSOTECHS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - Mailify</title>
 
     <!-- ============================================ -->
     <!-- SEO & META TAGS -->
     <!-- ============================================ -->
-    <meta name="description" content="Mailify Card - Premium Digital Business Card. Share your professional profile with anyone, anywhere.">
-    <meta name="keywords" content="Mailify, digital business card, business card, networking, OSO TECHS, professional profile">
+    <meta name="description" content="Delete your Mailify account permanently. Learn how to request account deletion and data removal from Mailify.">
+    <meta name="keywords" content="Mailify, delete account, remove account, cancel account, data deletion, OSO TECHS">
     <meta name="author" content="OSO TECHS">
     <meta name="robots" content="index, follow">
 
     <!-- OPEN GRAPH for WhatsApp, Facebook, Google -->
-    <meta property="og:title" content="Mailify Card - Premium Digital Business Card">
-    <meta property="og:description" content="Share your professional profile with Mailify Card. Digital business cards made simple.">
+    <meta property="og:title" content="Delete Account - Mailify">
+    <meta property="og:description" content="Learn how to permanently delete your Mailify account and remove all your data from our platform.">
     <meta property="og:image" content="https://osotechs.com/images/mailify.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
-    <meta property="og:url" content="https://osotechs.com/mailify/card/index.html">
+    <meta property="og:url" content="https://osotechs.com/mailify/delete-account.html">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Mailify Card">
+    <meta property="og:site_name" content="Mailify">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mailify Card - Premium Digital Business Card">
-    <meta name="twitter:description" content="Share your professional profile with Mailify Card.">
+    <meta name="twitter:title" content="Delete Account - Mailify">
+    <meta name="twitter:description" content="Request to permanently delete your Mailify account and data.">
     <meta name="twitter:image" content="https://osotechs.com/images/mailify.png">
 
     <!-- ============================================ -->
@@ -39,222 +39,158 @@
     <link rel="manifest" href="site.webmanifest">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-        body { background: #0f172a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .container { max-width: 420px; width: 100%; background: #1e293b; border-radius: 24px; padding: 40px 30px; border: 1px solid #334155; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-        .logo { width: 80px; height: 80px; background: #3b82f6; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 32px; font-weight: 700; color: white; }
-        h1 { color: #f1f5f9; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
-        .subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 30px; }
-        .card-id { background: #0f172a; border-radius: 12px; padding: 12px; color: #3b82f6; font-family: monospace; font-size: 18px; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid #334155; }
-        .profile-preview { display: flex; align-items: center; gap: 15px; background: #0f172a; border-radius: 16px; padding: 15px 20px; margin-bottom: 25px; border: 1px solid #334155; }
-        .profile-avatar { width: 56px; height: 56px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: white; flex-shrink: 0; }
-        .profile-info { text-align: left; }
-        .profile-info .name { color: #f1f5f9; font-size: 18px; font-weight: 600; }
-        .profile-info .title { color: #94a3b8; font-size: 14px; }
-        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
-        .btn { padding: 14px 20px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .btn-primary { background: #3b82f6; color: white; }
-        .btn-primary:hover { background: #2563eb; transform: scale(1.02); }
-        .btn-outline { background: transparent; color: #94a3b8; border: 1px solid #334155; }
-        .btn-outline:hover { border-color: #3b82f6; color: #3b82f6; }
-        .btn-success { background: #10b981; color: white; }
-        .btn-success:hover { background: #059669; transform: scale(1.02); }
-        .divider { display: flex; align-items: center; gap: 15px; color: #475569; font-size: 13px; margin: 15px 0; }
-        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #334155; }
-        .footer { margin-top: 25px; color: #475569; font-size: 12px; }
-        .footer a { color: #3b82f6; text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
-        .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid #334155; border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .status-message { display: flex; align-items: center; justify-content: center; gap: 10px; color: #94a3b8; font-size: 14px; margin-bottom: 20px; padding: 12px; background: #0f172a; border-radius: 10px; border: 1px solid #334155; }
-        .app-icons { display: flex; gap: 12px; justify-content: center; margin: 10px 0; }
-        .app-icon { width: 48px; height: 48px; border-radius: 12px; background: #0f172a; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s; text-decoration: none; color: #f1f5f9; }
-        .app-icon:hover { border-color: #3b82f6; transform: scale(1.05); }
-        .api-error { background: rgba(239,68,68,0.2); border: 1px solid #ef4444; color: #ef4444; padding: 10px; border-radius: 8px; margin-bottom: 15px; font-size: 13px; }
-        .hidden { display: none; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #0A0A0A;
+            color: #FFFFFF;
+            line-height: 1.8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #D4AF37;
+            margin-bottom: 25px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+        .header p {
+            color: #888;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+        .box {
+            background: #111;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            border: 1px solid #222;
+        }
+        .box h2 {
+            color: #D4AF37;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .box p {
+            color: #CCCCCC;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .box ul li {
+            color: #CCCCCC;
+            font-size: 14px;
+            padding: 6px 12px 6px 28px;
+            position: relative;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .box ul li:last-child { border-bottom: none; }
+        .box ul li::before {
+            content: "✦";
+            color: #D4AF37;
+            position: absolute;
+            left: 6px;
+        }
+        .email-box {
+            background: #1a1a0a;
+            border: 1px solid #D4AF37;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .email-box a {
+            color: #D4AF37;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .email-box a:hover { text-decoration: underline; }
+        .footer {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #222;
+            margin-top: 20px;
+        }
+        .footer p { color: #666; font-size: 13px; }
+        .footer .brand { color: #D4AF37; font-weight: 600; }
+        a { color: #D4AF37; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .warning { color: #FFA500; font-weight: 600; }
+        @media (max-width: 600px) {
+            .container { padding: 20px 10px; }
+            .header h1 { font-size: 22px; }
+            .box { padding: 16px; }
+        }
     </style>
 </head>
 <body>
+<div class="container">
 
-    <div class="container">
-        <div class="logo">📧</div>
-        <h1>Mailify Card</h1>
-        <p class="subtitle">Premium Digital Business Card</p>
-        
-        <div class="card-id" id="cardId">Loading...</div>
-        
-        <div class="status-message" id="statusMessage">
-            <span class="spinner"></span>
-            <span>Loading card details...</span>
-        </div>
-        
-        <div class="profile-preview">
-            <div class="profile-avatar" id="avatar">U</div>
-            <div class="profile-info">
-                <div class="name" id="userName">Loading...</div>
-                <div class="title" id="userTitle">Business Professional</div>
-            </div>
-        </div>
-        
-        <div class="btn-group">
-            <button class="btn btn-primary" onclick="openApp()">📱 Open in App</button>
-            <div class="divider">or</div>
-            <button class="btn btn-success" onclick="saveContact()">💾 Save Contact</button>
-            <button class="btn btn-outline" onclick="shareCard()">📤 Share Card</button>
-        </div>
-        
-        <div class="divider">Download App</div>
-        <div class="app-icons">
-            <a href="https://apps.apple.com/app/mailify" class="app-icon" title="iOS App">🍎</a>
-            <a href="https://play.google.com/store/apps/details?id=com.mailify.app" class="app-icon" title="Android App">🤖</a>
-            <a href="https://osotechs.com" class="app-icon" title="Web App">🌐</a>
-        </div>
-        
-        <div class="footer">
-            <p>Powered by <a href="https://osotechs.com">OSOTECHS</a></p>
-            <p style="margin-top: 5px;">© 2026 Mailify. All rights reserved.</p>
-        </div>
+    <div class="header">
+        <h1>🗑️ Delete Your Mailify Account</h1>
+        <p>Mailify — Connect Buyers. Reach More Customers.</p>
     </div>
 
-    <script>
-        // Get card ID from URL query parameter or path
-        function getCardId() {
-            const urlParams = new URLSearchParams(window.location.search);
-            let id = urlParams.get('id');
-            
-            if (!id) {
-                const path = window.location.pathname;
-                const segments = path.split('/').filter(s => s);
-                const lastSegment = segments[segments.length - 1];
-                
-                if (lastSegment && lastSegment.startsWith('MF-')) {
-                    id = lastSegment;
-                } else {
-                    id = 'unknown';
-                }
-            }
-            
-            return id;
-        }
-        
-        const cardId = getCardId();
-        const API_URL = 'https://mailifyapp.duckdns.org/mailify_backend/api/get_card.php';
-        
-        document.getElementById('cardId').textContent = cardId;
-        
-        async function fetchCardDetails() {
-            try {
-                if (cardId === 'unknown') {
-                    document.getElementById('statusMessage').innerHTML = `
-                        <span>⚠️</span>
-                        <span>Invalid card URL</span>
-                    `;
-                    return;
-                }
-                
-                const response = await fetch(`${API_URL}?card_id=${cardId}`);
-                const data = await response.json();
-                
-                if (data.success && data.card) {
-                    const card = data.card;
-                    
-                    document.getElementById('userName').textContent = card.full_name || card.username || 'Mailify User';
-                    document.getElementById('userTitle').textContent = card.business_name || card.title || 'Business Professional';
-                    
-                    const avatar = document.getElementById('avatar');
-                    const name = document.getElementById('userName').textContent;
-                    avatar.textContent = name.charAt(0).toUpperCase();
-                    
-                    document.getElementById('statusMessage').innerHTML = `
-                        <span>✅</span>
-                        <span>Card ready! Tap to open in app.</span>
-                    `;
-                    
-                    setTimeout(openApp, 1000);
-                } else {
-                    document.getElementById('statusMessage').innerHTML = `
-                        <span>⚠️</span>
-                        <span>Card not found. Please check the URL.</span>
-                    `;
-                }
-            } catch (error) {
-                console.error('Error fetching card:', error);
-                document.getElementById('statusMessage').innerHTML = `
-                    <span>⚠️</span>
-                    <span>Could not load card details. Using default.</span>
-                `;
-            }
-        }
-        
-        function openApp() {
-            const deepLink = `mailify://card/${cardId}`;
-            const androidIntent = `intent://card/${cardId}#Intent;package=com.mailify.app;scheme=mailify;end`;
-            
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = deepLink;
-            document.body.appendChild(iframe);
-            
-            window.location.href = androidIntent;
-            
-            setTimeout(() => {
-                document.getElementById('statusMessage').innerHTML = `
-                    <span>📱</span>
-                    <span>App not installed? Download below!</span>
-                `;
-                document.querySelector('.app-icons').style.display = 'flex';
-            }, 2500);
-        }
-        
-        function saveContact() {
-            const name = document.getElementById('userName').textContent;
-            const vcard = `BEGIN:VCARD
-VERSION:3.0
-FN:${name}
-ORG:OSOTECHS
-TEL:08135103329
-EMAIL:mailifyservice@gmail.com
-URL:https://osotechs.com/mailify/card/index.html?id=${cardId}
-END:VCARD`;
-            
-            const blob = new Blob([vcard], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = `${cardId}.vcf`;
-            link.click();
-            URL.revokeObjectURL(url);
-            
-            document.getElementById('statusMessage').innerHTML = `
-                <span>✅</span>
-                <span>Contact saved successfully!</span>
-            `;
-        }
-        
-        function shareCard() {
-            const url = `https://osotechs.com/mailify/card/index.html?id=${cardId}`;
-            const name = document.getElementById('userName').textContent;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Mailify Card',
-                    text: `Check out my Mailify card: ${name}`,
-                    url: url
-                }).catch(() => {});
-            } else {
-                navigator.clipboard.writeText(url).then(() => {
-                    document.getElementById('statusMessage').innerHTML = `
-                        <span>✅</span>
-                        <span>Link copied to clipboard!</span>
-                    `;
-                });
-            }
-        }
-        
-        window.onload = function() {
-            fetchCardDetails();
-        };
-    </script>
+    <div class="box">
+        <h2>📧 Request Account Deletion</h2>
+        <p>To permanently delete your Mailify account and all associated data, send an email to:</p>
+        <div class="email-box">
+            <a href="mailto:osotech.dev@gmail.com?subject=Delete%20My%20Mailify%20Account">📧 osotech.dev@gmail.com</a>
+        </div>
+        <p style="margin-top: 12px;"><strong>Subject:</strong> Delete My Mailify Account</p>
+        <p><strong>Include:</strong> Your registered email address or username</p>
+    </div>
 
+    <div class="box">
+        <h2>⏳ What Happens Next</h2>
+        <ul>
+            <li>We will verify your identity</li>
+            <li>Your account will be deleted within <strong>48 hours</strong></li>
+            <li>You will receive a confirmation email</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>🗑️ What Data is Deleted</h2>
+        <ul>
+            <li>Profile information (name, email, phone)</li>
+            <li>Business listings and materials</li>
+            <li>Chat messages and conversations</li>
+            <li>Saved items and favorites</li>
+            <li>All account data</li>
+        </ul>
+        <p style="margin-top: 10px; color: #FFA500;">⚠️ This action is <strong>PERMANENT</strong> and cannot be undone.</p>
+    </div>
+
+    <div class="box">
+        <h2>📅 Data Retention</h2>
+        <p>After deletion, your data is retained for <strong>30 days</strong> for legal purposes, then permanently erased.</p>
+    </div>
+
+    <div class="box">
+        <h2>❓ Need Help?</h2>
+        <p>Contact us at: <a href="mailto:osotech.dev@gmail.com">osotech.dev@gmail.com</a></p>
+    </div>
+
+    <div class="footer">
+        <p class="brand">✦ MAILIFY</p>
+        <p>© 2026 OSO TECHS. All rights reserved.</p>
+    </div>
+
+</div>
 </body>
 </html>
