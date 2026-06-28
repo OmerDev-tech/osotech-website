@@ -8,26 +8,26 @@
     <!-- ============================================ -->
     <!-- SEO & META TAGS -->
     <!-- ============================================ -->
-    <meta name="description" content="Privacy Policy for Mailify - Connect Buyers. Reach More Customers. Your privacy matters to us.">
-    <meta name="keywords" content="Mailify, privacy policy, business card app, connect buyers, OSO TECHS">
+    <meta name="description" content="Mailify Digital Business Card - Connect with professionals instantly">
+    <meta name="keywords" content="Mailify, business card, digital card, connect, OSO TECHS">
     <meta name="author" content="OSO TECHS">
     <meta name="robots" content="index, follow">
 
     <!-- OPEN GRAPH for WhatsApp, Facebook, Google -->
-    <meta property="og:title" content="Privacy Policy - Mailify">
-    <meta property="og:description" content="Mailify helps you connect your business with customers instantly. Read our privacy policy to understand how we protect your data.">
+    <meta property="og:title" content="Mailify Card">
+    <meta property="og:description" content="Digital Business Card - Connect with me on Mailify">
     <meta property="og:image" content="https://osotechs.com/images/mailify.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="512">
     <meta property="og:image:height" content="512">
-    <meta property="og:url" content="https://osotechs.com/privacy-policy.html">
+    <meta property="og:url" content="https://osotechs.com/mailify/card/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mailify">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Privacy Policy - Mailify">
-    <meta name="twitter:description" content="Mailify Privacy Policy - Your privacy matters to us.">
+    <meta name="twitter:title" content="Mailify Card">
+    <meta name="twitter:description" content="Digital Business Card - Connect with me on Mailify">
     <meta name="twitter:image" content="https://osotechs.com/images/mailify.png">
 
     <!-- ============================================ -->
@@ -36,7 +36,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="https://osotechs.com/images/mailify.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://osotechs.com/images/mailify.png">
     <link rel="apple-touch-icon" sizes="180x180" href="https://osotechs.com/images/mailify.png">
-    <link rel="manifest" href="site.webmanifest">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
@@ -58,20 +57,19 @@
         .status-active { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
         .status-inactive { background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
         
-        /* Profile Preview - NO IMAGES */
+        /* Profile Preview - Like seller-profile screen */
         .profile-preview { display: flex; align-items: center; gap: 15px; background: #0f172a; border-radius: 16px; padding: 15px 20px; margin-bottom: 25px; border: 1px solid #334155; }
         .profile-preview-gold { border-color: rgba(212,175,55,0.3); background: rgba(212,175,55,0.05); }
-        .profile-avatar { width: 56px; height: 56px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: white; flex-shrink: 0; }
-        .profile-avatar-gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); border: 2px solid #D4AF37; }
+        .profile-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #D4AF37, #F5D76E); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: #0f172a; flex-shrink: 0; border: 2px solid #D4AF37; }
         .profile-info { text-align: left; }
         .profile-info .name { color: #f1f5f9; font-size: 18px; font-weight: 600; }
         .profile-info .name-gold { color: #D4AF37; }
         .profile-info .title { color: #94a3b8; font-size: 14px; }
         .profile-info .title-gold { color: #F5D76E; }
         
-        /* Card Display (for inactive) */
+        /* Card Display (for inactive) - Just shows serial */
         .card-display { background: #0f172a; border-radius: 16px; padding: 30px 20px; border: 1px solid #334155; margin-bottom: 25px; }
-        .card-display .card-number { font-size: 24px; font-weight: 700; color: #3b82f6; font-family: monospace; letter-spacing: 4px; margin-bottom: 8px; }
+        .card-display .card-number { font-size: 28px; font-weight: 700; color: #3b82f6; font-family: monospace; letter-spacing: 4px; margin-bottom: 8px; }
         .card-display .card-label { color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
         
         /* Buttons */
@@ -101,13 +99,17 @@
         .gold-text { color: #D4AF37; }
         .hidden { display: none !important; }
         
-        /* Location & Description */
+        /* Location & Description - Like seller-profile */
         .location { color: #94a3b8; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; margin: 12px 0; }
         .description { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 12px 0; }
         .premium-stats { display: flex; gap: 12px; margin: 16px 0; }
         .premium-stat { flex: 1; background: #0f172a; border-radius: 12px; padding: 12px; border: 1px solid #334155; }
         .premium-stat .number { color: #D4AF37; font-size: 20px; font-weight: 700; }
         .premium-stat .label { color: #94a3b8; font-size: 11px; margin-top: 2px; }
+        
+        .account-type-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
+        .account-type-business { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
+        .account-type-personal { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
     </style>
 </head>
 <body>
@@ -128,7 +130,7 @@
         </div>
         
         <!-- ============================================ -->
-        <!-- INACTIVE CARD VIEW (Just shows card)          -->
+        <!-- INACTIVE CARD VIEW - Just shows card serial   -->
         <!-- ============================================ -->
         <div id="inactiveView">
             <div class="card-display">
@@ -144,24 +146,33 @@
         </div>
         
         <!-- ============================================ -->
-        <!-- ACTIVE CARD VIEW (Shows full profile)         -->
+        <!-- ACTIVE CARD VIEW - Shows profile like seller  -->
         <!-- ============================================ -->
         <div id="activeView" class="hidden">
             <!-- Premium Badge -->
             <div class="premium-badge">💎 Premium Card</div>
             
-            <!-- Profile Preview - NO IMAGES, just avatar letter -->
+            <!-- Account Type Badge -->
+            <div id="accountTypeBadge" class="account-type-badge account-type-business">🏢 Business Account</div>
+            
+            <!-- Profile Preview -->
             <div class="profile-preview profile-preview-gold" id="profilePreview">
-                <div class="profile-avatar profile-avatar-gold" id="avatar">U</div>
+                <div class="profile-avatar" id="avatar">U</div>
                 <div class="profile-info">
                     <div class="name name-gold" id="userName">Loading...</div>
                     <div class="title title-gold" id="userTitle">Business Professional</div>
                 </div>
             </div>
             
+            <!-- Rating Row -->
+            <div style="flex-direction:row; align-items:center; justify-content:center; gap:8px; margin-bottom:12px;">
+                <span id="ratingStars" style="color:#D4AF37; font-size:16px;">★★★★★</span>
+                <span id="ratingText" style="color:#94a3b8; font-size:13px;">(0 reviews)</span>
+            </div>
+            
             <!-- Location -->
             <div class="location" id="locationDisplay">
-                <span>📍</span> <span id="locationText">Loading location...</span>
+                <span>📍</span> <span id="locationText">Location not set</span>
             </div>
             
             <!-- Description -->
@@ -230,7 +241,7 @@
         }
         
         const cardId = getCardId();
-        // Updated API URL - using api.osotechs.com
+        // USING osotechs.com API for the web
         const API_URL = 'https://api.osotechs.com/mailify_backend/api/get_card.php';
         
         // ============================================
@@ -253,10 +264,13 @@
             scanCount: document.getElementById('scanCount'),
             viewCount: document.getElementById('viewCount'),
             clickCount: document.getElementById('clickCount'),
+            ratingStars: document.getElementById('ratingStars'),
+            ratingText: document.getElementById('ratingText'),
+            accountTypeBadge: document.getElementById('accountTypeBadge'),
         };
         
         // ============================================
-        // FETCH CARD DETAILS - UPDATED FOR NEW API
+        // FETCH CARD DETAILS
         // ============================================
         async function fetchCardDetails() {
             // Show card ID
@@ -289,7 +303,6 @@
                 
                 if (data.success && data.card) {
                     const card = data.card;
-                    // User data is now inside card.user
                     const user = card.user || {};
                     const isActive = card.status === 'active';
                     
@@ -303,7 +316,7 @@
                         showActiveView(card, user);
                     } else {
                         // ============================================
-                        // INACTIVE CARD - Just show card
+                        // INACTIVE CARD - Just show card serial
                         // ============================================
                         showInactiveView(card);
                     }
@@ -328,7 +341,7 @@
         }
         
         // ============================================
-        // SHOW ACTIVE VIEW - UPDATED (NO IMAGES)
+        // SHOW ACTIVE VIEW - Like seller-profile
         // ============================================
         function showActiveView(card, user) {
             // Hide inactive, show active
@@ -347,24 +360,43 @@
             // Update card ID
             elements.cardId.classList.add('card-id-gold');
             
-            // Status
+            // Status - Active!
             elements.status.innerHTML = `
                 <span>✅</span>
                 <span class="success-text">Card is Active</span>
             `;
             
-            // Profile - using the new display_name from API
+            // Profile - show name and first letter
             const displayName = user.display_name || user.business_name || user.full_name || user.username || 'Mailify User';
             elements.userName.textContent = displayName;
             elements.userTitle.textContent = user.title || user.business_type || 'Business Professional';
             
-            // Avatar - just first letter (NO IMAGES)
+            // Avatar - just first letter (NO IMAGES!)
             const initial = displayName.charAt(0).toUpperCase();
             elements.avatar.textContent = initial;
-            // Remove any background images
-            elements.avatar.style.backgroundImage = 'none';
-            elements.avatar.style.backgroundSize = 'auto';
-            elements.avatar.style.backgroundPosition = 'auto';
+            
+            // Account Type Badge
+            const isBusiness = user.account_type === 'business';
+            elements.accountTypeBadge.textContent = isBusiness ? '🏢 Business Account' : '👤 Personal Account';
+            elements.accountTypeBadge.className = 'account-type-badge ' + (isBusiness ? 'account-type-business' : 'account-type-personal');
+            elements.accountTypeBadge.style.display = 'inline-block';
+            
+            // Rating Stars
+            const rating = user.rating || 0;
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating - fullStars >= 0.5;
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    starsHtml += '★';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    starsHtml += '★';
+                } else {
+                    starsHtml += '☆';
+                }
+            }
+            elements.ratingStars.textContent = starsHtml;
+            elements.ratingText.textContent = `(${rating.toFixed(1)})`;
             
             // Location
             const locationParts = [];
@@ -386,7 +418,7 @@
         }
         
         // ============================================
-        // SHOW INACTIVE VIEW
+        // SHOW INACTIVE VIEW - Just card serial
         // ============================================
         function showInactiveView(card) {
             // Show inactive, hide active
@@ -408,7 +440,7 @@
             // Update card number
             elements.cardNumber.textContent = card.unique_id || cardId;
             
-            // Status
+            // Status - Inactive
             elements.status.innerHTML = `
                 <span>⏳</span>
                 <span class="loading-text">Card pending activation. Activate in the Mailify app.</span>
