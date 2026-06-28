@@ -1,196 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Account - Mailify</title>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
     <!-- ============================================ -->
     <!-- SEO & META TAGS -->
     <!-- ============================================ -->
-    <meta name="description" content="Delete your Mailify account permanently. Learn how to request account deletion and data removal from Mailify.">
-    <meta name="keywords" content="Mailify, delete account, remove account, cancel account, data deletion, OSO TECHS">
-    <meta name="author" content="OSO TECHS">
+    <title>Mailify Card - Premium Digital Business Card</title>
+    <meta name="description" content="Mailify Card - Premium Digital Business Card. Share your professional profile instantly with QR code.">
+    <meta name="keywords" content="Mailify, business card, digital card, QR code, professional profile, networking, OSOTECHS">
+    <meta name="author" content="OSOTECHS">
     <meta name="robots" content="index, follow">
 
     <!-- OPEN GRAPH for WhatsApp, Facebook, Google -->
-    <meta property="og:title" content="Delete Account - Mailify">
-    <meta property="og:description" content="Learn how to permanently delete your Mailify account and remove all your data from our platform.">
-    <meta property="og:image" content="https://osotechs.com/images/mailify.png">
+    <meta property="og:title" content="Mailify Card - Premium Digital Business Card">
+    <meta property="og:description" content="Share your professional profile instantly with Mailify Card. Scan the QR code to connect.">
+    <meta property="og:image" content="https://osotechs.com/images/mailify-og.png">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
-    <meta property="og:url" content="https://osotechs.com/mailify/delete-account.html">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://osotechs.com/mailify/card/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mailify">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Delete Account - Mailify">
-    <meta name="twitter:description" content="Request to permanently delete your Mailify account and data.">
-    <meta name="twitter:image" content="https://osotechs.com/images/mailify.png">
+    <meta name="twitter:title" content="Mailify Card - Premium Digital Business Card">
+    <meta name="twitter:description" content="Share your professional profile instantly with Mailify Card.">
+    <meta name="twitter:image" content="https://osotechs.com/images/mailify-og.png">
 
-    <!-- ============================================ -->
-    <!-- FAVICON -->
-    <!-- ============================================ -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://osotechs.com/images/mailify.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://osotechs.com/images/mailify.png">
     <link rel="apple-touch-icon" sizes="180x180" href="https://osotechs.com/images/mailify.png">
-    <link rel="manifest" href="site.webmanifest">
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            background: #0A0A0A;
-            color: #FFFFFF;
-            line-height: 1.8;
-            padding: 20px;
-        }
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .header {
-            text-align: center;
-            padding-bottom: 25px;
-            border-bottom: 2px solid #D4AF37;
-            margin-bottom: 25px;
-        }
-        .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #D4AF37;
-        }
-        .header p {
-            color: #888;
-            font-size: 14px;
-            margin-top: 6px;
-        }
-        .box {
-            background: #111;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 16px;
-            border: 1px solid #222;
-        }
-        .box h2 {
-            color: #D4AF37;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        .box p {
-            color: #CCCCCC;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-        .box ul {
-            list-style: none;
-            padding: 0;
-        }
-        .box ul li {
-            color: #CCCCCC;
-            font-size: 14px;
-            padding: 6px 12px 6px 28px;
-            position: relative;
-            border-bottom: 1px solid #1a1a1a;
-        }
-        .box ul li:last-child { border-bottom: none; }
-        .box ul li::before {
-            content: "✦";
-            color: #D4AF37;
-            position: absolute;
-            left: 6px;
-        }
-        .email-box {
-            background: #1a1a0a;
-            border: 1px solid #D4AF37;
-            border-radius: 10px;
-            padding: 16px;
-            text-align: center;
-            margin-top: 10px;
-        }
-        .email-box a {
-            color: #D4AF37;
-            font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .email-box a:hover { text-decoration: underline; }
-        .footer {
-            text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid #222;
-            margin-top: 20px;
-        }
-        .footer p { color: #666; font-size: 13px; }
-        .footer .brand { color: #D4AF37; font-weight: 600; }
-        a { color: #D4AF37; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .warning { color: #FFA500; font-weight: 600; }
-        @media (max-width: 600px) {
-            .container { padding: 20px 10px; }
-            .header h1 { font-size: 22px; }
-            .box { padding: 16px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        body { background: #0f172a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+        .container { max-width: 420px; width: 100%; background: #1e293b; border-radius: 24px; padding: 40px 30px; border: 1px solid #334155; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        
+        /* Logo & Header */
+        .logo { width: 80px; height: 80px; background: #3b82f6; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 32px; font-weight: 700; color: white; }
+        .logo.gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); }
+        h1 { color: #f1f5f9; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .h1-gold { color: #D4AF37; }
+        .subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 30px; }
+        .card-id { background: #0f172a; border-radius: 12px; padding: 12px; color: #3b82f6; font-family: monospace; font-size: 18px; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid #334155; word-break: break-all; }
+        .card-id-gold { color: #D4AF37; border-color: rgba(212,175,55,0.3); background: rgba(212,175,55,0.05); }
+        
+        /* Premium Badge */
+        .premium-badge { display: inline-block; background: linear-gradient(135deg, #D4AF37, #F5D76E); color: #0f172a; padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        .status-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+        .status-active { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+        .status-inactive { background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+        
+        /* Profile Preview */
+        .profile-preview { display: flex; align-items: center; gap: 15px; background: #0f172a; border-radius: 16px; padding: 15px 20px; margin-bottom: 25px; border: 1px solid #334155; }
+        .profile-preview-gold { border-color: rgba(212,175,55,0.3); background: rgba(212,175,55,0.05); }
+        .profile-avatar { width: 56px; height: 56px; border-radius: 50%; background: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: white; flex-shrink: 0; }
+        .profile-avatar-gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); border: 2px solid #D4AF37; }
+        .profile-info { text-align: left; flex: 1; }
+        .profile-info .name { color: #f1f5f9; font-size: 18px; font-weight: 600; }
+        .profile-info .name-gold { color: #D4AF37; }
+        .profile-info .title { color: #94a3b8; font-size: 14px; }
+        .profile-info .title-gold { color: #F5D76E; }
+        
+        /* Card Display (for inactive) */
+        .card-display { background: #0f172a; border-radius: 16px; padding: 30px 20px; border: 1px solid #334155; margin-bottom: 25px; }
+        .card-display .card-number { font-size: 24px; font-weight: 700; color: #3b82f6; font-family: monospace; letter-spacing: 4px; margin-bottom: 8px; word-break: break-all; }
+        .card-display .card-label { color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+        
+        /* Buttons */
+        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
+        .btn { padding: 14px 20px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-primary { background: #3b82f6; color: white; }
+        .btn-primary:hover { background: #2563eb; transform: scale(1.02); }
+        .btn-gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); color: #0f172a; }
+        .btn-gold:hover { transform: scale(1.02); }
+        .btn-outline { background: transparent; color: #94a3b8; border: 1px solid #334155; }
+        .btn-outline:hover { border-color: #3b82f6; color: #3b82f6; }
+        .btn-success { background: #10b981; color: white; }
+        .btn-success:hover { background: #059669; transform: scale(1.02); }
+        .divider { display: flex; align-items: center; gap: 15px; color: #475569; font-size: 13px; margin: 15px 0; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #334155; }
+        .footer { margin-top: 25px; color: #475569; font-size: 12px; }
+        .footer a { color: #3b82f6; text-decoration: none; }
+        .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid #334155; border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .status-message { display: flex; align-items: center; justify-content: center; gap: 10px; color: #94a3b8; font-size: 14px; margin-bottom: 20px; padding: 12px; background: #0f172a; border-radius: 10px; border: 1px solid #334155; }
+        .app-icons { display: flex; gap: 12px; justify-content: center; margin: 10px 0; }
+        .app-icon { width: 48px; height: 48px; border-radius: 12px; background: #0f172a; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s; text-decoration: none; color: #f1f5f9; }
+        .app-icon:hover { border-color: #3b82f6; transform: scale(1.05); }
+        .error-text { color: #ef4444; }
+        .success-text { color: #10b981; }
+        .loading-text { color: #3b82f6; }
+        .gold-text { color: #D4AF37; }
+        .hidden { display: none !important; }
+        
+        /* Location & Description */
+        .location { color: #94a3b8; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; margin: 12px 0; }
+        .description { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 12px 0; }
+        .premium-stats { display: flex; gap: 12px; margin: 16px 0; }
+        .premium-stat { flex: 1; background: #0f172a; border-radius: 12px; padding: 12px; border: 1px solid #334155; }
+        .premium-stat .number { color: #D4AF37; font-size: 20px; font-weight: 700; }
+        .premium-stat .label { color: #94a3b8; font-size: 11px; margin-top: 2px; }
+        .retry-btn { background: #3b82f6; color: white; border: none; padding: 8px 16px; border-radius: 8px; margin-top: 8px; cursor: pointer; font-size: 12px; font-weight: 600; }
+        .retry-btn:hover { background: #2563eb; }
+        
+        @media (max-width: 480px) {
+            .container { padding: 25px 20px; }
+            .premium-stats { flex-direction: column; }
+            .premium-stat { padding: 10px; }
         }
     </style>
 </head>
 <body>
-<div class="container">
 
-    <div class="header">
-        <h1>🗑️ Delete Your Mailify Account</h1>
-        <p>Mailify — Connect Buyers. Reach More Customers.</p>
-    </div>
-
-    <div class="box">
-        <h2>📧 Request Account Deletion</h2>
-        <p>To permanently delete your Mailify account and all associated data, send an email to:</p>
-        <div class="email-box">
-            <a href="mailto:osotech.dev@gmail.com?subject=Delete%20My%20Mailify%20Account">📧 osotech.dev@gmail.com</a>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo" id="logo">📧</div>
+        <h1 id="pageTitle">Mailify Card</h1>
+        <p class="subtitle" id="pageSubtitle">Premium Digital Business Card</p>
+        
+        <!-- Card ID -->
+        <div class="card-id" id="cardId">Loading...</div>
+        
+        <!-- Status -->
+        <div class="status-message" id="statusMessage">
+            <span class="spinner"></span>
+            <span>Loading card details...</span>
         </div>
-        <p style="margin-top: 12px;"><strong>Subject:</strong> Delete My Mailify Account</p>
-        <p><strong>Include:</strong> Your registered email address or username</p>
+        
+        <!-- ============================================ -->
+        <!-- INACTIVE CARD VIEW (Just shows card)          -->
+        <!-- ============================================ -->
+        <div id="inactiveView">
+            <div class="card-display">
+                <div class="card-label">Card Number</div>
+                <div class="card-number" id="cardNumber">MF-XXXXXX</div>
+                <div style="margin-top: 8px;">
+                    <span class="status-badge status-inactive">⏳ Not Activated</span>
+                </div>
+                <div style="margin-top: 12px; color: #64748b; font-size: 12px;">
+                    Activate your card in the Mailify app
+                </div>
+            </div>
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- ACTIVE CARD VIEW (Shows full profile)         -->
+        <!-- ============================================ -->
+        <div id="activeView" class="hidden">
+            <!-- Premium Badge -->
+            <div class="premium-badge">💎 Premium Card</div>
+            
+            <!-- Profile Preview -->
+            <div class="profile-preview profile-preview-gold" id="profilePreview">
+                <div class="profile-avatar profile-avatar-gold" id="avatar">U</div>
+                <div class="profile-info">
+                    <div class="name name-gold" id="userName">Loading...</div>
+                    <div class="title title-gold" id="userTitle">Business Professional</div>
+                </div>
+            </div>
+            
+            <!-- Location -->
+            <div class="location" id="locationDisplay">
+                <span>📍</span> <span id="locationText">Loading location...</span>
+            </div>
+            
+            <!-- Description -->
+            <div class="description" id="descriptionText"></div>
+            
+            <!-- Premium Stats -->
+            <div class="premium-stats">
+                <div class="premium-stat">
+                    <div class="number" id="scanCount">0</div>
+                    <div class="label">Scans</div>
+                </div>
+                <div class="premium-stat">
+                    <div class="number" id="viewCount">0</div>
+                    <div class="label">Views</div>
+                </div>
+                <div class="premium-stat">
+                    <div class="number" id="clickCount">0</div>
+                    <div class="label">Clicks</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- BUTTONS                                       -->
+        <!-- ============================================ -->
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="openApp()">📱 Open in App</button>
+            <div class="divider">or</div>
+            <button class="btn btn-success" onclick="saveContact()">💾 Save Contact</button>
+            <button class="btn btn-outline" onclick="shareCard()">📤 Share Card</button>
+        </div>
+        
+        <!-- Download App -->
+        <div class="divider">Download App</div>
+        <div class="app-icons">
+            <a href="#" class="app-icon" title="iOS App">🍎</a>
+            <a href="https://play.google.com/store/apps/details?id=com.mailify.app" class="app-icon" title="Android App">🤖</a>
+            <a href="https://osotechs.com" class="app-icon" title="Web App">🌐</a>
+        </div>
+        
+        <div class="footer">
+            <p>Powered by <a href="https://osotechs.com">OSOTECHS</a></p>
+            <p style="margin-top: 5px;">© 2026 Mailify. All rights reserved.</p>
+        </div>
     </div>
 
-    <div class="box">
-        <h2>⏳ What Happens Next</h2>
-        <ul>
-            <li>We will verify your identity</li>
-            <li>Your account will be deleted within <strong>48 hours</strong></li>
-            <li>You will receive a confirmation email</li>
-        </ul>
-    </div>
+    <script>
+        // ============================================
+        // GET CARD ID FROM URL
+        // ============================================
+        function getCardId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let id = urlParams.get('id');
+            
+            if (!id) {
+                const path = window.location.pathname;
+                const segments = path.split('/').filter(s => s);
+                const lastSegment = segments[segments.length - 1];
+                if (lastSegment && (lastSegment.startsWith('MF-') || lastSegment.startsWith('MC-'))) {
+                    id = lastSegment;
+                } else {
+                    id = 'unknown';
+                }
+            }
+            return id;
+        }
+        
+        const cardId = getCardId();
+        const API_URL = 'http://mailifyapp.duckdns.org/mailify_backend/api/get_card.php';
+        
+        // ============================================
+        // ELEMENTS
+        // ============================================
+        const elements = {
+            cardId: document.getElementById('cardId'),
+            status: document.getElementById('statusMessage'),
+            logo: document.getElementById('logo'),
+            pageTitle: document.getElementById('pageTitle'),
+            pageSubtitle: document.getElementById('pageSubtitle'),
+            inactiveView: document.getElementById('inactiveView'),
+            activeView: document.getElementById('activeView'),
+            cardNumber: document.getElementById('cardNumber'),
+            avatar: document.getElementById('avatar'),
+            userName: document.getElementById('userName'),
+            userTitle: document.getElementById('userTitle'),
+            locationText: document.getElementById('locationText'),
+            descriptionText: document.getElementById('descriptionText'),
+            scanCount: document.getElementById('scanCount'),
+            viewCount: document.getElementById('viewCount'),
+            clickCount: document.getElementById('clickCount'),
+        };
+        
+        // ============================================
+        // FETCH CARD DETAILS
+        // ============================================
+        async function fetchCardDetails() {
+            // Show card ID
+            elements.cardId.textContent = cardId;
+            
+            if (cardId === 'unknown') {
+                elements.status.innerHTML = `<span>⚠️</span><span>Invalid card URL</span>`;
+                return;
+            }
+            
+            // Show loading
+            elements.status.innerHTML = `
+                <span class="spinner"></span>
+                <span class="loading-text">Loading card details...</span>
+            `;
+            
+            try {
+                console.log('Fetching card:', cardId);
+                const fullUrl = `${API_URL}?card_id=${encodeURIComponent(cardId)}`;
+                console.log('API URL:', fullUrl);
+                
+                const response = await fetch(fullUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                console.log('API Response:', data);
+                
+                if (data.success && data.card) {
+                    const card = data.card;
+                    const user = card.user || {};
+                    const isActive = card.status === 'active';
+                    
+                    // Update card number
+                    elements.cardNumber.textContent = card.unique_id || cardId;
+                    
+                    if (isActive) {
+                        // ============================================
+                        // ACTIVE CARD - Show full profile
+                        // ============================================
+                        showActiveView(card, user);
+                    } else {
+                        // ============================================
+                        // INACTIVE CARD - Just show card
+                        // ============================================
+                        showInactiveView(card);
+                    }
+                } else {
+                    elements.status.innerHTML = `
+                        <span>⚠️</span>
+                        <span class="error-text">${data.message || 'Card not found'}</span>
+                    `;
+                    elements.inactiveView.style.display = 'block';
+                    elements.activeView.classList.add('hidden');
+                }
+            } catch (error) {
+                console.error('Error fetching card:', error);
+                elements.status.innerHTML = `
+                    <span>⚠️</span>
+                    <span class="error-text">Could not load card details.</span>
+                    <br><button class="retry-btn" onclick="fetchCardDetails()">🔄 Retry</button>
+                `;
+                elements.inactiveView.style.display = 'block';
+                elements.activeView.classList.add('hidden');
+            }
+        }
+        
+        // ============================================
+        // SHOW ACTIVE VIEW
+        // ============================================
+        function showActiveView(card, user) {
+            // Hide inactive, show active
+            elements.inactiveView.style.display = 'none';
+            elements.activeView.classList.remove('hidden');
+            
+            // Update logo
+            elements.logo.classList.add('gold');
+            elements.logo.textContent = '💎';
+            
+            // Update title
+            elements.pageTitle.classList.add('h1-gold');
+            elements.pageTitle.textContent = 'Premium Card';
+            elements.pageSubtitle.textContent = 'Active Digital Business Card';
+            
+            // Update card ID
+            elements.cardId.classList.add('card-id-gold');
+            
+            // Status
+            elements.status.innerHTML = `
+                <span>✅</span>
+                <span class="success-text">Card is Active</span>
+            `;
+            
+            // Profile
+            const displayName = user.display_name || user.business_name || user.full_name || user.username || 'Mailify User';
+            elements.userName.textContent = displayName;
+            elements.userTitle.textContent = user.title || user.business_type || 'Business Professional';
+            elements.avatar.textContent = displayName.charAt(0).toUpperCase();
+            
+            // Profile image
+            if (user.profile_image) {
+                elements.avatar.style.backgroundImage = `url(${user.profile_image})`;
+                elements.avatar.style.backgroundSize = 'cover';
+                elements.avatar.style.backgroundPosition = 'center';
+                elements.avatar.textContent = '';
+            }
+            
+            // Location
+            const locationParts = [];
+            if (user.city) locationParts.push(user.city);
+            if (user.state) locationParts.push(user.state);
+            if (user.country) locationParts.push(user.country);
+            elements.locationText.textContent = locationParts.length > 0 ? locationParts.join(', ') : 'Location not set';
+            
+            // Description
+            elements.descriptionText.textContent = user.description || 'No description available.';
+            
+            // Stats
+            elements.scanCount.textContent = card.total_scans || 0;
+            elements.viewCount.textContent = card.total_profile_views || 0;
+            elements.clickCount.textContent = card.total_clicks || 0;
+        }
+        
+        // ============================================
+        // SHOW INACTIVE VIEW
+        // ============================================
+        function showInactiveView(card) {
+            // Show inactive, hide active
+            elements.inactiveView.style.display = 'block';
+            elements.activeView.classList.add('hidden');
+            
+            // Reset logo
+            elements.logo.classList.remove('gold');
+            elements.logo.textContent = '📧';
+            
+            // Reset title
+            elements.pageTitle.classList.remove('h1-gold');
+            elements.pageTitle.textContent = 'Mailify Card';
+            elements.pageSubtitle.textContent = 'Premium Digital Business Card';
+            
+            // Reset card ID
+            elements.cardId.classList.remove('card-id-gold');
+            
+            // Update card number
+            elements.cardNumber.textContent = card.unique_id || cardId;
+            
+            // Status
+            elements.status.innerHTML = `
+                <span>⏳</span>
+                <span class="loading-text">Card pending activation. Activate in the Mailify app.</span>
+            `;
+        }
+        
+        // ============================================
+        // OPEN APP
+        // ============================================
+        function openApp() {
+            const deepLink = `mailify://card/${cardId}`;
+            const androidIntent = `intent://card/${cardId}#Intent;package=com.mailify.app;scheme=mailify;end`;
+            
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = deepLink;
+            document.body.appendChild(iframe);
+            
+            window.location.href = androidIntent;
+            
+            setTimeout(() => {
+                const statusEl = document.getElementById('statusMessage');
+                statusEl.innerHTML = `
+                    <span>📱</span>
+                    <span>App not installed? Download below!</span>
+                `;
+                document.querySelector('.app-icons').style.display = 'flex';
+            }, 2500);
+        }
+        
+        // ============================================
+        // SAVE CONTACT
+        // ============================================
+        function saveContact() {
+            const name = document.getElementById('userName').textContent;
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+ORG:OSOTECHS
+TEL:08135103329
+EMAIL:mailifyservice@gmail.com
+URL:https://osotechs.com/mailify/card/index.html?id=${cardId}
+END:VCARD`;
+            
+            const blob = new Blob([vcard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${cardId}.vcf`;
+            link.click();
+            URL.revokeObjectURL(url);
+            
+            const statusEl = document.getElementById('statusMessage');
+            statusEl.innerHTML = `<span>✅</span><span class="success-text">Contact saved!</span>`;
+        }
+        
+        // ============================================
+        // SHARE CARD
+        // ============================================
+        function shareCard() {
+            const url = `https://osotechs.com/mailify/card/index.html?id=${cardId}`;
+            const name = document.getElementById('userName').textContent;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Mailify Card',
+                    text: `Check out my Mailify card: ${name}`,
+                    url: url
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(url).then(() => {
+                    const statusEl = document.getElementById('statusMessage');
+                    statusEl.innerHTML = `<span>✅</span><span class="success-text">Link copied!</span>`;
+                });
+            }
+        }
+        
+        // ============================================
+        // LOAD ON PAGE START
+        // ============================================
+        window.onload = function() {
+            fetchCardDetails();
+        };
+    </script>
 
-    <div class="box">
-        <h2>🗑️ What Data is Deleted</h2>
-        <ul>
-            <li>Profile information (name, email, phone)</li>
-            <li>Business listings and materials</li>
-            <li>Chat messages and conversations</li>
-            <li>Saved items and favorites</li>
-            <li>All account data</li>
-        </ul>
-        <p style="margin-top: 10px; color: #FFA500;">⚠️ This action is <strong>PERMANENT</strong> and cannot be undone.</p>
-    </div>
-
-    <div class="box">
-        <h2>📅 Data Retention</h2>
-        <p>After deletion, your data is retained for <strong>30 days</strong> for legal purposes, then permanently erased.</p>
-    </div>
-
-    <div class="box">
-        <h2>❓ Need Help?</h2>
-        <p>Contact us at: <a href="mailto:osotech.dev@gmail.com">osotech.dev@gmail.com</a></p>
-    </div>
-
-    <div class="footer">
-        <p class="brand">✦ MAILIFY</p>
-        <p>© 2026 OSO TECHS. All rights reserved.</p>
-    </div>
-
-</div>
 </body>
 </html>
