@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Mailify Card - OSOTECHS</title>
 
-    <!-- ============================================ -->
     <!-- SEO & META TAGS -->
-    <!-- ============================================ -->
     <meta name="description" content="Mailify Digital Business Card - Connect with professionals instantly">
     <meta name="keywords" content="Mailify, business card, digital card, connect, OSO TECHS">
     <meta name="author" content="OSO TECHS">
     <meta name="robots" content="index, follow">
 
-    <!-- OPEN GRAPH for WhatsApp, Facebook, Google -->
+    <!-- OPEN GRAPH -->
     <meta property="og:title" content="Mailify Card">
     <meta property="og:description" content="Digital Business Card - Connect with me on Mailify">
     <meta property="og:image" content="https://osotechs.com/images/mailify.png">
@@ -30,51 +28,115 @@
     <meta name="twitter:description" content="Digital Business Card - Connect with me on Mailify">
     <meta name="twitter:image" content="https://osotechs.com/images/mailify.png">
 
-    <!-- ============================================ -->
     <!-- FAVICON -->
-    <!-- ============================================ -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://osotechs.com/images/mailify.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://osotechs.com/images/mailify.png">
     <link rel="apple-touch-icon" sizes="180x180" href="https://osotechs.com/images/mailify.png">
 
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         body { background: #0f172a; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
-        .container { max-width: 420px; width: 100%; background: #1e293b; border-radius: 24px; padding: 40px 30px; border: 1px solid #334155; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .container { max-width: 420px; width: 100%; background: #1e293b; border-radius: 24px; padding: 30px 24px; border: 1px solid #334155; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
         
         /* Logo & Header */
-        .logo { width: 80px; height: 80px; background: #3b82f6; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 32px; font-weight: 700; color: white; }
+        .logo { width: 70px; height: 70px; background: #3b82f6; border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; font-weight: 700; color: white; }
         .logo.gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); }
-        h1 { color: #f1f5f9; font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        h1 { color: #f1f5f9; font-size: 24px; font-weight: 700; margin-bottom: 4px; }
         .h1-gold { color: #D4AF37; }
-        .subtitle { color: #94a3b8; font-size: 16px; margin-bottom: 30px; }
-        .card-id { background: #0f172a; border-radius: 12px; padding: 12px; color: #3b82f6; font-family: monospace; font-size: 18px; letter-spacing: 2px; margin-bottom: 25px; border: 1px solid #334155; }
+        .subtitle { color: #94a3b8; font-size: 14px; margin-bottom: 20px; }
+        
+        /* Card ID */
+        .card-id { background: #0f172a; border-radius: 10px; padding: 10px; color: #3b82f6; font-family: monospace; font-size: 16px; letter-spacing: 2px; margin-bottom: 20px; border: 1px solid #334155; }
         .card-id-gold { color: #D4AF37; border-color: rgba(212,175,55,0.3); background: rgba(212,175,55,0.05); }
         
+        /* Status Message */
+        .status-message { display: flex; align-items: center; justify-content: center; gap: 10px; color: #94a3b8; font-size: 14px; margin-bottom: 16px; padding: 10px; background: #0f172a; border-radius: 10px; border: 1px solid #334155; }
+        .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid #334155; border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .error-text { color: #ef4444; }
+        .success-text { color: #10b981; }
+        .loading-text { color: #3b82f6; }
+        .gold-text { color: #D4AF37; }
+        .hidden { display: none !important; }
+        
         /* Premium Badge */
-        .premium-badge { display: inline-block; background: linear-gradient(135deg, #D4AF37, #F5D76E); color: #0f172a; padding: 4px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
-        .status-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; }
-        .status-active { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
-        .status-inactive { background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+        .premium-badge { display: inline-block; background: linear-gradient(135deg, #D4AF37, #F5D76E); color: #0f172a; padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
         
-        /* Profile Preview - Like seller-profile screen */
-        .profile-preview { display: flex; align-items: center; gap: 15px; background: #0f172a; border-radius: 16px; padding: 15px 20px; margin-bottom: 25px; border: 1px solid #334155; }
+        /* Account Type Badge */
+        .account-type-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
+        .account-type-business { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
+        .account-type-personal { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+        
+        /* Profile Preview */
+        .profile-preview { display: flex; align-items: center; gap: 14px; background: #0f172a; border-radius: 14px; padding: 14px 18px; margin-bottom: 16px; border: 1px solid #334155; }
         .profile-preview-gold { border-color: rgba(212,175,55,0.3); background: rgba(212,175,55,0.05); }
-        .profile-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #D4AF37, #F5D76E); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: #0f172a; flex-shrink: 0; border: 2px solid #D4AF37; }
-        .profile-info { text-align: left; }
-        .profile-info .name { color: #f1f5f9; font-size: 18px; font-weight: 600; }
+        .profile-avatar { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 600; color: #fff; flex-shrink: 0; border: 2px solid #D4AF37; }
+        .profile-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .profile-info { text-align: left; flex: 1; }
+        .profile-info .name { color: #f1f5f9; font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
         .profile-info .name-gold { color: #D4AF37; }
-        .profile-info .title { color: #94a3b8; font-size: 14px; }
+        .profile-info .title { color: #94a3b8; font-size: 13px; }
         .profile-info .title-gold { color: #F5D76E; }
+        .verified-badge { color: #3b82f6; font-size: 16px; }
+        .verified-badge-gold { color: #D4AF37; }
         
-        /* Card Display (for inactive) - Just shows serial */
-        .card-display { background: #0f172a; border-radius: 16px; padding: 30px 20px; border: 1px solid #334155; margin-bottom: 25px; }
-        .card-display .card-number { font-size: 28px; font-weight: 700; color: #3b82f6; font-family: monospace; letter-spacing: 4px; margin-bottom: 8px; }
-        .card-display .card-label { color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 2px; }
+        /* Rating */
+        .rating-row { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+        .rating-stars { color: #D4AF37; font-size: 16px; letter-spacing: 2px; }
+        .rating-text { color: #94a3b8; font-size: 13px; }
+        .rating-number { color: #D4AF37; font-size: 14px; font-weight: 600; }
+        
+        /* Location & Description */
+        .location { color: #94a3b8; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; margin: 8px 0; }
+        .description { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 10px 0; text-align: left; }
+        
+        /* Stats */
+        .premium-stats { display: flex; gap: 10px; margin: 14px 0; }
+        .premium-stat { flex: 1; background: #0f172a; border-radius: 12px; padding: 10px; border: 1px solid #334155; }
+        .premium-stat .number { color: #D4AF37; font-size: 18px; font-weight: 700; }
+        .premium-stat .label { color: #94a3b8; font-size: 10px; margin-top: 2px; }
+        
+        /* Quick Action Buttons */
+        .quick-actions { display: flex; gap: 8px; margin: 14px 0; flex-wrap: wrap; }
+        .quick-btn { flex: 1; min-width: 60px; padding: 10px 8px; border: none; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 4px; color: #fff; }
+        .quick-btn i { font-size: 18px; }
+        .quick-btn-call { background: #10b981; }
+        .quick-btn-call:hover { background: #059669; }
+        .quick-btn-message { background: #3b82f6; }
+        .quick-btn-message:hover { background: #2563eb; }
+        .quick-btn-email { background: #8b5cf6; }
+        .quick-btn-email:hover { background: #7c3aed; }
+        .quick-btn-website { background: #f59e0b; }
+        .quick-btn-website:hover { background: #d97706; }
+        
+        /* Social Links */
+        .social-links { display: flex; gap: 10px; justify-content: center; margin: 14px 0; flex-wrap: wrap; }
+        .social-link { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; text-decoration: none; transition: all 0.3s; border: 1px solid #334155; background: #0f172a; }
+        .social-link:hover { transform: scale(1.1); border-color: #D4AF37; }
+        .social-link.instagram:hover { color: #E4405F; border-color: #E4405F; }
+        .social-link.tiktok:hover { color: #00f2ea; border-color: #00f2ea; }
+        .social-link.facebook:hover { color: #1877F2; border-color: #1877F2; }
+        .social-link.twitter:hover { color: #1DA1F2; border-color: #1DA1F2; }
+        .social-link.youtube:hover { color: #FF0000; border-color: #FF0000; }
+        .social-link.linkedin:hover { color: #0A66C2; border-color: #0A66C2; }
+        .social-link.custom:hover { color: #D4AF37; border-color: #D4AF37; }
+        
+        /* Feature Buttons */
+        .feature-buttons { display: flex; gap: 8px; margin: 14px 0; flex-wrap: wrap; }
+        .feature-btn { flex: 1; min-width: 80px; padding: 10px 12px; border: none; border-radius: 10px; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 6px; background: #0f172a; color: #94a3b8; border: 1px solid #334155; }
+        .feature-btn:hover { border-color: #D4AF37; color: #D4AF37; }
+        .feature-btn i { font-size: 16px; }
+        
+        /* Divider */
+        .divider { display: flex; align-items: center; gap: 15px; color: #475569; font-size: 12px; margin: 12px 0; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #334155; }
         
         /* Buttons */
-        .btn-group { display: flex; flex-direction: column; gap: 12px; margin-top: 5px; }
-        .btn { padding: 14px 20px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-group { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+        .btn { padding: 12px 16px; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .btn-primary { background: #3b82f6; color: white; }
         .btn-primary:hover { background: #2563eb; transform: scale(1.02); }
         .btn-gold { background: linear-gradient(135deg, #D4AF37, #F5D76E); color: #0f172a; }
@@ -83,33 +145,40 @@
         .btn-outline:hover { border-color: #3b82f6; color: #3b82f6; }
         .btn-success { background: #10b981; color: white; }
         .btn-success:hover { background: #059669; transform: scale(1.02); }
-        .divider { display: flex; align-items: center; gap: 15px; color: #475569; font-size: 13px; margin: 15px 0; }
-        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #334155; }
-        .footer { margin-top: 25px; color: #475569; font-size: 12px; }
-        .footer a { color: #3b82f6; text-decoration: none; }
-        .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid #334155; border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.8s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .status-message { display: flex; align-items: center; justify-content: center; gap: 10px; color: #94a3b8; font-size: 14px; margin-bottom: 20px; padding: 12px; background: #0f172a; border-radius: 10px; border: 1px solid #334155; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-danger:hover { background: #dc2626; transform: scale(1.02); }
+        
+        /* Card Display (Inactive) */
+        .card-display { background: #0f172a; border-radius: 16px; padding: 30px 20px; border: 1px solid #334155; margin-bottom: 20px; }
+        .card-display .card-number { font-size: 26px; font-weight: 700; color: #3b82f6; font-family: monospace; letter-spacing: 4px; margin-bottom: 6px; }
+        .card-display .card-label { color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+        .status-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+        .status-active { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+        .status-inactive { background: rgba(245,158,11,0.2); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
+        
+        /* App Icons */
         .app-icons { display: flex; gap: 12px; justify-content: center; margin: 10px 0; }
-        .app-icon { width: 48px; height: 48px; border-radius: 12px; background: #0f172a; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s; text-decoration: none; color: #f1f5f9; }
+        .app-icon { width: 48px; height: 48px; border-radius: 12px; background: #0f172a; border: 1px solid #334155; display: flex; align-items: center; justify-content: center; font-size: 22px; transition: all 0.3s; text-decoration: none; color: #f1f5f9; }
         .app-icon:hover { border-color: #3b82f6; transform: scale(1.05); }
-        .error-text { color: #ef4444; }
-        .success-text { color: #10b981; }
-        .loading-text { color: #3b82f6; }
-        .gold-text { color: #D4AF37; }
-        .hidden { display: none !important; }
         
-        /* Location & Description - Like seller-profile */
-        .location { color: #94a3b8; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; margin: 12px 0; }
-        .description { color: #94a3b8; font-size: 14px; line-height: 1.6; margin: 12px 0; }
-        .premium-stats { display: flex; gap: 12px; margin: 16px 0; }
-        .premium-stat { flex: 1; background: #0f172a; border-radius: 12px; padding: 12px; border: 1px solid #334155; }
-        .premium-stat .number { color: #D4AF37; font-size: 20px; font-weight: 700; }
-        .premium-stat .label { color: #94a3b8; font-size: 11px; margin-top: 2px; }
+        /* Footer */
+        .footer { margin-top: 20px; color: #475569; font-size: 11px; }
+        .footer a { color: #3b82f6; text-decoration: none; }
         
-        .account-type-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; margin-bottom: 12px; }
-        .account-type-business { background: rgba(59,130,246,0.15); color: #3b82f6; border: 1px solid rgba(59,130,246,0.3); }
-        .account-type-personal { background: rgba(16,185,129,0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+        /* Scrollable */
+        .scroll-content { max-height: 70vh; overflow-y: auto; padding-right: 4px; }
+        .scroll-content::-webkit-scrollbar { width: 3px; }
+        .scroll-content::-webkit-scrollbar-track { background: #0f172a; border-radius: 10px; }
+        .scroll-content::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        
+        /* Responsive */
+        @media (max-width: 400px) {
+            .container { padding: 20px 16px; }
+            .quick-btn { font-size: 10px; padding: 8px 4px; }
+            .quick-btn i { font-size: 14px; }
+            .profile-avatar { width: 44px; height: 44px; font-size: 18px; }
+            .profile-info .name { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
@@ -123,14 +192,14 @@
         <!-- Card ID -->
         <div class="card-id" id="cardId">Loading...</div>
         
-        <!-- Status -->
+        <!-- Status Message -->
         <div class="status-message" id="statusMessage">
             <span class="spinner"></span>
             <span>Loading card details...</span>
         </div>
         
         <!-- ============================================ -->
-        <!-- INACTIVE CARD VIEW - Just shows card serial   -->
+        <!-- INACTIVE CARD VIEW                           -->
         <!-- ============================================ -->
         <div id="inactiveView">
             <div class="card-display">
@@ -139,83 +208,171 @@
                 <div style="margin-top: 8px;">
                     <span class="status-badge status-inactive">⏳ Not Activated</span>
                 </div>
-                <div style="margin-top: 12px; color: #64748b; font-size: 12px;">
+                <div style="margin-top: 10px; color: #64748b; font-size: 13px;">
+                    This card has not been activated yet.
+                </div>
+                <div style="margin-top: 6px; color: #64748b; font-size: 12px;">
                     Activate your card in the Mailify app
                 </div>
             </div>
+            
+            <!-- Preview of what profile looks like -->
+            <div style="background: #0f172a; border-radius: 12px; padding: 16px; border: 1px solid #334155; margin-bottom: 16px;">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+                    <div style="width:44px; height:44px; border-radius:50%; background: linear-gradient(135deg, #D4AF37, #F5D76E); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:600; color:#0f172a;">U</div>
+                    <div style="text-align:left;">
+                        <div style="color:#94a3b8; font-size:12px;">💎 Preview</div>
+                        <div style="color:#D4AF37; font-size:16px; font-weight:600;">Your Name Here</div>
+                    </div>
+                </div>
+                <div style="color:#64748b; font-size:12px; text-align:left;">
+                    <i class="fas fa-star" style="color:#D4AF37;"></i> 5.0 (12 reviews)
+                </div>
+                <div style="color:#64748b; font-size:12px; text-align:left; margin-top:4px;">
+                    <i class="fas fa-map-marker-alt" style="color:#D4AF37;"></i> Your Location
+                </div>
+                <div style="margin-top:8px; display:flex; gap:6px;">
+                    <span style="background:#0f172a; padding:4px 10px; border-radius:12px; border:1px solid #334155; color:#94a3b8; font-size:10px;">📞 Call</span>
+                    <span style="background:#0f172a; padding:4px 10px; border-radius:12px; border:1px solid #334155; color:#94a3b8; font-size:10px;">💬 Message</span>
+                    <span style="background:#0f172a; padding:4px 10px; border-radius:12px; border:1px solid #334155; color:#94a3b8; font-size:10px;">📧 Email</span>
+                </div>
+                <div style="color:#64748b; font-size:11px; text-align:left; margin-top:8px;">
+                    <i class="fas fa-link"></i> Instagram · TikTok · Facebook
+                </div>
+            </div>
+            
+            <!-- Buttons for inactive -->
+            <div class="btn-group">
+                <button class="btn btn-gold" onclick="openApp()">🔑 Activate Card</button>
+                <button class="btn btn-primary" onclick="openApp()">📱 Open in App</button>
+                <button class="btn btn-outline" onclick="downloadApp()">📲 Download App</button>
+            </div>
         </div>
         
         <!-- ============================================ -->
-        <!-- ACTIVE CARD VIEW - Shows profile like seller  -->
+        <!-- ACTIVE CARD VIEW - Full Profile              -->
         <!-- ============================================ -->
         <div id="activeView" class="hidden">
-            <!-- Premium Badge -->
-            <div class="premium-badge">💎 Premium Card</div>
-            
-            <!-- Account Type Badge -->
-            <div id="accountTypeBadge" class="account-type-badge account-type-business">🏢 Business Account</div>
-            
-            <!-- Profile Preview -->
-            <div class="profile-preview profile-preview-gold" id="profilePreview">
-                <div class="profile-avatar" id="avatar">U</div>
-                <div class="profile-info">
-                    <div class="name name-gold" id="userName">Loading...</div>
-                    <div class="title title-gold" id="userTitle">Business Professional</div>
+            <div class="scroll-content">
+                <!-- Premium Badge -->
+                <div class="premium-badge">💎 Premium Card</div>
+                
+                <!-- Account Type Badge -->
+                <div id="accountTypeBadge" class="account-type-badge account-type-business">🏢 Business Account</div>
+                
+                <!-- Profile Preview -->
+                <div class="profile-preview profile-preview-gold" id="profilePreview">
+                    <div class="profile-avatar" id="avatar" style="background: linear-gradient(135deg, #D4AF37, #F5D76E);">
+                        <span id="avatarText">U</span>
+                    </div>
+                    <div class="profile-info">
+                        <div class="name name-gold" id="userName">
+                            <span id="displayName">Loading...</span>
+                            <span class="verified-badge verified-badge-gold" id="verifiedBadge" style="display:none;">
+                                <i class="fas fa-check-circle"></i>
+                            </span>
+                        </div>
+                        <div class="title title-gold" id="userTitle">Business Professional</div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Rating Row -->
-            <div style="flex-direction:row; align-items:center; justify-content:center; gap:8px; margin-bottom:12px;">
-                <span id="ratingStars" style="color:#D4AF37; font-size:16px;">★★★★★</span>
-                <span id="ratingText" style="color:#94a3b8; font-size:13px;">(0 reviews)</span>
-            </div>
-            
-            <!-- Location -->
-            <div class="location" id="locationDisplay">
-                <span>📍</span> <span id="locationText">Location not set</span>
-            </div>
-            
-            <!-- Description -->
-            <div class="description" id="descriptionText"></div>
-            
-            <!-- Premium Stats -->
-            <div class="premium-stats">
-                <div class="premium-stat">
-                    <div class="number" id="scanCount">0</div>
-                    <div class="label">Scans</div>
+                
+                <!-- Rating Row -->
+                <div class="rating-row">
+                    <span class="rating-stars" id="ratingStars">★★★★★</span>
+                    <span class="rating-number" id="ratingNumber">5.0</span>
+                    <span class="rating-text" id="ratingText">(0 reviews)</span>
                 </div>
-                <div class="premium-stat">
-                    <div class="number" id="viewCount">0</div>
-                    <div class="label">Views</div>
+                
+                <!-- Location -->
+                <div class="location" id="locationDisplay">
+                    <i class="fas fa-map-marker-alt" style="color:#D4AF37;"></i>
+                    <span id="locationText">Location not set</span>
                 </div>
-                <div class="premium-stat">
-                    <div class="number" id="clickCount">0</div>
-                    <div class="label">Clicks</div>
+                
+                <!-- Description -->
+                <div class="description" id="descriptionText"></div>
+                
+                <!-- Premium Stats -->
+                <div class="premium-stats">
+                    <div class="premium-stat">
+                        <div class="number" id="scanCount">0</div>
+                        <div class="label"><i class="fas fa-qrcode"></i> Scans</div>
+                    </div>
+                    <div class="premium-stat">
+                        <div class="number" id="viewCount">0</div>
+                        <div class="label"><i class="fas fa-eye"></i> Views</div>
+                    </div>
+                    <div class="premium-stat">
+                        <div class="number" id="clickCount">0</div>
+                        <div class="label"><i class="fas fa-mouse-pointer"></i> Clicks</div>
+                    </div>
                 </div>
+                
+                <!-- ============================================ -->
+                <!-- QUICK ACTION BUTTONS                         -->
+                <!-- ============================================ -->
+                <div class="quick-actions" id="quickActions">
+                    <button class="quick-btn quick-btn-call" id="callBtn" onclick="makeCall()">
+                        <i class="fas fa-phone"></i>
+                        <span>Call</span>
+                    </button>
+                    <button class="quick-btn quick-btn-message" id="messageBtn" onclick="sendMessage()">
+                        <i class="fas fa-comment"></i>
+                        <span>Message</span>
+                    </button>
+                    <button class="quick-btn quick-btn-email" id="emailBtn" onclick="sendEmail()">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </button>
+                    <button class="quick-btn quick-btn-website" id="websiteBtn" onclick="openWebsite()">
+                        <i class="fas fa-globe"></i>
+                        <span>Website</span>
+                    </button>
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- SOCIAL LINKS                                 -->
+                <!-- ============================================ -->
+                <div class="social-links" id="socialLinks">
+                    <!-- Will be populated dynamically -->
+                </div>
+                
+                <!-- ============================================ -->
+                <!-- FEATURE BUTTONS                              -->
+                <!-- ============================================ -->
+                <div class="feature-buttons">
+                    <button class="feature-btn" onclick="saveContact()">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+                    <button class="feature-btn" onclick="shareProfile()">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                    <button class="feature-btn" onclick="addToWallet()">
+                        <i class="fas fa-wallet"></i> Wallet
+                    </button>
+                    <button class="feature-btn" onclick="openApp()">
+                        <i class="fas fa-mobile-alt"></i> App
+                    </button>
+                </div>
+                
+                <div class="divider">or</div>
+                
+                <!-- Open App Button -->
+                <button class="btn btn-primary" onclick="openApp()">📱 Open in App</button>
             </div>
-        </div>
-        
-        <!-- ============================================ -->
-        <!-- BUTTONS                                       -->
-        <!-- ============================================ -->
-        <div class="btn-group">
-            <button class="btn btn-primary" onclick="openApp()">📱 Open in App</button>
-            <div class="divider">or</div>
-            <button class="btn btn-success" onclick="saveContact()">💾 Save Contact</button>
-            <button class="btn btn-outline" onclick="shareCard()">📤 Share Card</button>
         </div>
         
         <!-- Download App -->
-        <div class="divider">Download App</div>
-        <div class="app-icons">
-            <a href="#" class="app-icon" title="iOS App">🍎</a>
-            <a href="https://play.google.com/store/apps/details?id=com.mailify.app" class="app-icon" title="Android App">🤖</a>
-            <a href="https://osotechs.com" class="app-icon" title="Web App">🌐</a>
+        <div class="divider" id="appDivider">Download App</div>
+        <div class="app-icons" id="appIcons">
+            <a href="#" class="app-icon" title="iOS App"><i class="fab fa-apple"></i></a>
+            <a href="https://play.google.com/store/apps/details?id=com.mailify.app" class="app-icon" title="Android App"><i class="fab fa-android"></i></a>
+            <a href="https://osotechs.com" class="app-icon" title="Web App"><i class="fas fa-globe"></i></a>
         </div>
         
         <div class="footer">
             <p>Powered by <a href="https://osotechs.com">OSOTECHS</a></p>
-            <p style="margin-top: 5px;">© 2026 Mailify. All rights reserved.</p>
+            <p style="margin-top: 4px;">© 2026 Mailify. All rights reserved.</p>
         </div>
     </div>
 
@@ -241,8 +398,13 @@
         }
         
         const cardId = getCardId();
-        // USING osotechs.com API for the web
         const API_URL = 'https://api.osotechs.com/mailify_backend/api/get_card.php';
+        
+        // ============================================
+        // CARD DATA STORE
+        // ============================================
+        let cardData = null;
+        let userData = null;
         
         // ============================================
         // ELEMENTS
@@ -256,7 +418,8 @@
             inactiveView: document.getElementById('inactiveView'),
             activeView: document.getElementById('activeView'),
             cardNumber: document.getElementById('cardNumber'),
-            avatar: document.getElementById('avatar'),
+            avatarText: document.getElementById('avatarText'),
+            displayName: document.getElementById('displayName'),
             userName: document.getElementById('userName'),
             userTitle: document.getElementById('userTitle'),
             locationText: document.getElementById('locationText'),
@@ -265,74 +428,64 @@
             viewCount: document.getElementById('viewCount'),
             clickCount: document.getElementById('clickCount'),
             ratingStars: document.getElementById('ratingStars'),
+            ratingNumber: document.getElementById('ratingNumber'),
             ratingText: document.getElementById('ratingText'),
             accountTypeBadge: document.getElementById('accountTypeBadge'),
+            verifiedBadge: document.getElementById('verifiedBadge'),
+            socialLinks: document.getElementById('socialLinks'),
+            quickActions: document.getElementById('quickActions'),
         };
         
         // ============================================
         // FETCH CARD DETAILS
         // ============================================
         async function fetchCardDetails() {
-            // Show card ID
             elements.cardId.textContent = cardId;
             
             if (cardId === 'unknown') {
-                elements.status.innerHTML = `<span>⚠️</span><span>Invalid card URL</span>`;
+                elements.status.innerHTML = `<i class="fas fa-exclamation-triangle" style="color:#ef4444;"></i><span class="error-text">Invalid card URL</span>`;
                 return;
             }
             
-            // Show loading
             elements.status.innerHTML = `
                 <span class="spinner"></span>
                 <span class="loading-text">Loading card details...</span>
             `;
             
             try {
-                console.log('Fetching card:', cardId);
                 const fullUrl = `${API_URL}?card_id=${encodeURIComponent(cardId)}`;
-                console.log('API URL:', fullUrl);
-                
                 const response = await fetch(fullUrl);
                 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 
                 const data = await response.json();
                 console.log('API Response:', data);
                 
                 if (data.success && data.card) {
-                    const card = data.card;
-                    const user = card.user || {};
-                    const isActive = card.status === 'active';
+                    cardData = data.card;
+                    userData = data.card.user || {};
+                    const isActive = cardData.status === 'active';
                     
                     // Update card number
-                    elements.cardNumber.textContent = card.unique_id || cardId;
+                    elements.cardNumber.textContent = cardData.unique_id || cardId;
                     
                     if (isActive) {
-                        // ============================================
-                        // ACTIVE CARD - Show full profile
-                        // ============================================
-                        showActiveView(card, user);
+                        showActiveView();
                     } else {
-                        // ============================================
-                        // INACTIVE CARD - Just show card serial
-                        // ============================================
-                        showInactiveView(card);
+                        showInactiveView();
                     }
                 } else {
                     elements.status.innerHTML = `
-                        <span>⚠️</span>
+                        <i class="fas fa-exclamation-triangle" style="color:#ef4444;"></i>
                         <span class="error-text">${data.message || 'Card not found'}</span>
                     `;
-                    // Show inactive view by default
                     elements.inactiveView.style.display = 'block';
                     elements.activeView.classList.add('hidden');
                 }
             } catch (error) {
                 console.error('Error fetching card:', error);
                 elements.status.innerHTML = `
-                    <span>⚠️</span>
+                    <i class="fas fa-exclamation-triangle" style="color:#ef4444;"></i>
                     <span class="error-text">Could not load card details. Please try again.</span>
                 `;
                 elements.inactiveView.style.display = 'block';
@@ -341,108 +494,210 @@
         }
         
         // ============================================
-        // SHOW ACTIVE VIEW - Like seller-profile
+        // SHOW ACTIVE VIEW
         // ============================================
-        function showActiveView(card, user) {
-            // Hide inactive, show active
+        function showActiveView() {
             elements.inactiveView.style.display = 'none';
             elements.activeView.classList.remove('hidden');
             
-            // Update logo
+            // Update header
             elements.logo.classList.add('gold');
             elements.logo.textContent = '💎';
-            
-            // Update title
             elements.pageTitle.classList.add('h1-gold');
             elements.pageTitle.textContent = 'Premium Card';
             elements.pageSubtitle.textContent = 'Active Digital Business Card';
-            
-            // Update card ID
             elements.cardId.classList.add('card-id-gold');
             
-            // Status - Active!
+            // Status
             elements.status.innerHTML = `
-                <span>✅</span>
+                <i class="fas fa-check-circle" style="color:#10b981;"></i>
                 <span class="success-text">Card is Active</span>
             `;
             
-            // Profile - show name and first letter
-            const displayName = user.display_name || user.business_name || user.full_name || user.username || 'Mailify User';
-            elements.userName.textContent = displayName;
-            elements.userTitle.textContent = user.title || user.business_type || 'Business Professional';
+            // ============================================
+            // POPULATE PROFILE DATA
+            // ============================================
+            const displayName = userData.display_name || userData.business_name || userData.full_name || userData.username || 'Mailify User';
+            const userTitle = userData.title || userData.business_type || 'Business Professional';
             
-            // Avatar - just first letter (NO IMAGES!)
+            // Name
+            elements.displayName.textContent = displayName;
+            
+            // Title
+            elements.userTitle.textContent = userTitle;
+            
+            // Avatar - first letter
             const initial = displayName.charAt(0).toUpperCase();
-            elements.avatar.textContent = initial;
+            elements.avatarText.textContent = initial;
+            
+            // Verified Badge
+            if (userData.is_verified) {
+                elements.verifiedBadge.style.display = 'inline';
+            }
             
             // Account Type Badge
-            const isBusiness = user.account_type === 'business';
+            const isBusiness = userData.account_type === 'business';
             elements.accountTypeBadge.textContent = isBusiness ? '🏢 Business Account' : '👤 Personal Account';
             elements.accountTypeBadge.className = 'account-type-badge ' + (isBusiness ? 'account-type-business' : 'account-type-personal');
             elements.accountTypeBadge.style.display = 'inline-block';
             
-            // Rating Stars
-            const rating = user.rating || 0;
+            // Rating
+            const rating = userData.rating || 0;
             const fullStars = Math.floor(rating);
             const hasHalfStar = rating - fullStars >= 0.5;
             let starsHtml = '';
             for (let i = 1; i <= 5; i++) {
-                if (i <= fullStars) {
-                    starsHtml += '★';
-                } else if (i === fullStars + 1 && hasHalfStar) {
-                    starsHtml += '★';
-                } else {
-                    starsHtml += '☆';
-                }
+                if (i <= fullStars) starsHtml += '★';
+                else if (i === fullStars + 1 && hasHalfStar) starsHtml += '★';
+                else starsHtml += '☆';
             }
             elements.ratingStars.textContent = starsHtml;
-            elements.ratingText.textContent = `(${rating.toFixed(1)})`;
+            elements.ratingNumber.textContent = rating.toFixed(1);
+            elements.ratingText.textContent = `(${userData.total_reviews || 0} reviews)`;
             
             // Location
             const locationParts = [];
-            if (user.city) locationParts.push(user.city);
-            if (user.state) locationParts.push(user.state);
-            if (user.country) locationParts.push(user.country);
+            if (userData.city) locationParts.push(userData.city);
+            if (userData.state) locationParts.push(userData.state);
+            if (userData.country) locationParts.push(userData.country);
             elements.locationText.textContent = locationParts.length > 0 ? locationParts.join(', ') : 'Location not set';
             
             // Description
-            elements.descriptionText.textContent = user.description || 'No description available.';
+            elements.descriptionText.textContent = userData.description || 'No description available.';
             
             // Stats
-            elements.scanCount.textContent = card.total_scans || 0;
-            elements.viewCount.textContent = card.total_profile_views || 0;
-            elements.clickCount.textContent = card.total_clicks || 0;
+            elements.scanCount.textContent = cardData.total_scans || 0;
+            elements.viewCount.textContent = cardData.total_profile_views || 0;
+            elements.clickCount.textContent = cardData.total_clicks || 0;
             
-            // Auto open app after 2 seconds
+            // ============================================
+            // SOCIAL LINKS
+            // ============================================
+            renderSocialLinks();
+            
+            // ============================================
+            // QUICK ACTIONS
+            // ============================================
+            setupQuickActions();
+            
+            // Auto-open app after 2 seconds
             setTimeout(openApp, 2000);
         }
         
         // ============================================
-        // SHOW INACTIVE VIEW - Just card serial
+        // RENDER SOCIAL LINKS
         // ============================================
-        function showInactiveView(card) {
-            // Show inactive, hide active
+        function renderSocialLinks() {
+            const socials = userData.social_links || {};
+            const socialConfig = {
+                instagram: { icon: 'fa-instagram', color: '#E4405F', label: 'Instagram' },
+                tiktok: { icon: 'fa-tiktok', color: '#00f2ea', label: 'TikTok' },
+                facebook: { icon: 'fa-facebook', color: '#1877F2', label: 'Facebook' },
+                twitter: { icon: 'fa-twitter', color: '#1DA1F2', label: 'Twitter' },
+                youtube: { icon: 'fa-youtube', color: '#FF0000', label: 'YouTube' },
+                linkedin: { icon: 'fa-linkedin-in', color: '#0A66C2', label: 'LinkedIn' },
+            };
+            
+            let html = '';
+            let hasLinks = false;
+            
+            for (const [key, config] of Object.entries(socialConfig)) {
+                if (socials[key]) {
+                    hasLinks = true;
+                    html += `
+                        <a href="${socials[key]}" target="_blank" class="social-link ${key}" title="${config.label}">
+                            <i class="fab ${config.icon}"></i>
+                        </a>
+                    `;
+                }
+            }
+            
+            // Custom links
+            if (userData.custom_links && userData.custom_links.length > 0) {
+                userData.custom_links.forEach((link, index) => {
+                    hasLinks = true;
+                    html += `
+                        <a href="${link.url}" target="_blank" class="social-link custom" title="${link.label || 'Link'}">
+                            <i class="fas fa-link"></i>
+                        </a>
+                    `;
+                });
+            }
+            
+            if (hasLinks) {
+                elements.socialLinks.innerHTML = html;
+                elements.socialLinks.style.display = 'flex';
+            } else {
+                elements.socialLinks.innerHTML = `
+                    <span style="color:#64748b; font-size:12px;">No social links added</span>
+                `;
+                elements.socialLinks.style.display = 'flex';
+            }
+        }
+        
+        // ============================================
+        // SETUP QUICK ACTIONS
+        // ============================================
+        function setupQuickActions() {
+            const phone = userData.phone || userData.business_phone || '';
+            const email = userData.email || userData.business_email || '';
+            const website = userData.website || '';
+            
+            // Call button
+            const callBtn = document.getElementById('callBtn');
+            if (phone) {
+                callBtn.style.display = 'flex';
+                callBtn.onclick = () => makeCall(phone);
+            } else {
+                callBtn.style.display = 'none';
+            }
+            
+            // Message button
+            const messageBtn = document.getElementById('messageBtn');
+            if (phone) {
+                messageBtn.style.display = 'flex';
+                messageBtn.onclick = () => sendMessage(phone);
+            } else {
+                messageBtn.style.display = 'none';
+            }
+            
+            // Email button
+            const emailBtn = document.getElementById('emailBtn');
+            if (email) {
+                emailBtn.style.display = 'flex';
+                emailBtn.onclick = () => sendEmail(email);
+            } else {
+                emailBtn.style.display = 'none';
+            }
+            
+            // Website button
+            const websiteBtn = document.getElementById('websiteBtn');
+            if (website) {
+                websiteBtn.style.display = 'flex';
+                websiteBtn.onclick = () => openWebsite(website);
+            } else {
+                websiteBtn.style.display = 'none';
+            }
+        }
+        
+        // ============================================
+        // SHOW INACTIVE VIEW
+        // ============================================
+        function showInactiveView() {
             elements.inactiveView.style.display = 'block';
             elements.activeView.classList.add('hidden');
             
-            // Reset logo
             elements.logo.classList.remove('gold');
             elements.logo.textContent = '📧';
-            
-            // Reset title
             elements.pageTitle.classList.remove('h1-gold');
             elements.pageTitle.textContent = 'Mailify Card';
             elements.pageSubtitle.textContent = 'Premium Digital Business Card';
-            
-            // Reset card ID
             elements.cardId.classList.remove('card-id-gold');
             
-            // Update card number
-            elements.cardNumber.textContent = card.unique_id || cardId;
+            elements.cardNumber.textContent = cardData.unique_id || cardId;
             
-            // Status - Inactive
             elements.status.innerHTML = `
-                <span>⏳</span>
+                <i class="fas fa-clock" style="color:#f59e0b;"></i>
                 <span class="loading-text">Card pending activation. Activate in the Mailify app.</span>
             `;
         }
@@ -463,25 +718,76 @@
             
             setTimeout(() => {
                 const statusEl = document.getElementById('statusMessage');
-                statusEl.innerHTML = `
-                    <span>📱</span>
-                    <span>App not installed? Download below!</span>
-                `;
-                document.querySelector('.app-icons').style.display = 'flex';
+                if (statusEl) {
+                    statusEl.innerHTML = `
+                        <i class="fas fa-mobile-alt" style="color:#3b82f6;"></i>
+                        <span>App not installed? Download below!</span>
+                    `;
+                }
+                document.getElementById('appIcons').style.display = 'flex';
+                document.getElementById('appDivider').style.display = 'flex';
             }, 2500);
         }
         
         // ============================================
-        // SAVE CONTACT
+        // DOWNLOAD APP
+        // ============================================
+        function downloadApp() {
+            window.open('https://play.google.com/store/apps/details?id=com.mailify.app', '_blank');
+        }
+        
+        // ============================================
+        // QUICK ACTION FUNCTIONS
+        // ============================================
+        function makeCall(phone) {
+            if (!phone) phone = userData.phone || userData.business_phone || '';
+            if (phone) {
+                window.location.href = `tel:${phone}`;
+            } else {
+                showStatus('No phone number available', 'error');
+            }
+        }
+        
+        function sendMessage(phone) {
+            if (!phone) phone = userData.phone || userData.business_phone || '';
+            if (phone) {
+                window.location.href = `https://wa.me/${phone.replace(/[^0-9]/g, '')}`;
+            } else {
+                showStatus('No phone number for messaging', 'error');
+            }
+        }
+        
+        function sendEmail(email) {
+            if (!email) email = userData.email || userData.business_email || '';
+            if (email) {
+                window.location.href = `mailto:${email}`;
+            } else {
+                showStatus('No email address available', 'error');
+            }
+        }
+        
+        function openWebsite(website) {
+            if (!website) website = userData.website || '';
+            if (website) {
+                window.open(website, '_blank');
+            } else {
+                showStatus('No website available', 'error');
+            }
+        }
+        
+        // ============================================
+        // SAVE CONTACT (vCard)
         // ============================================
         function saveContact() {
-            const name = document.getElementById('userName').textContent;
+            const name = userData.display_name || userData.business_name || userData.full_name || userData.username || 'Mailify User';
+            const phone = userData.phone || userData.business_phone || '';
+            const email = userData.email || userData.business_email || '';
+            
             const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:${name}
-ORG:OSOTECHS
-TEL:08135103329
-EMAIL:mailifyservice@gmail.com
+${phone ? `TEL:${phone}` : ''}
+${email ? `EMAIL:${email}` : ''}
 URL:https://osotechs.com/mailify/card/index.html?id=${cardId}
 END:VCARD`;
             
@@ -490,19 +796,20 @@ END:VCARD`;
             const link = document.createElement('a');
             link.href = url;
             link.download = `${cardId}.vcf`;
+            document.body.appendChild(link);
             link.click();
+            document.body.removeChild(link);
             URL.revokeObjectURL(url);
             
-            const statusEl = document.getElementById('statusMessage');
-            statusEl.innerHTML = `<span>✅</span><span class="success-text">Contact saved!</span>`;
+            showStatus('Contact saved!', 'success');
         }
         
         // ============================================
-        // SHARE CARD
+        // SHARE PROFILE
         // ============================================
-        function shareCard() {
+        function shareProfile() {
             const url = `https://osotechs.com/mailify/card/index.html?id=${cardId}`;
-            const name = document.getElementById('userName').textContent;
+            const name = userData.display_name || userData.business_name || userData.full_name || 'Mailify User';
             
             if (navigator.share) {
                 navigator.share({
@@ -512,16 +819,67 @@ END:VCARD`;
                 }).catch(() => {});
             } else {
                 navigator.clipboard.writeText(url).then(() => {
-                    const statusEl = document.getElementById('statusMessage');
-                    statusEl.innerHTML = `<span>✅</span><span class="success-text">Link copied!</span>`;
+                    showStatus('Link copied to clipboard!', 'success');
+                }).catch(() => {
+                    // Fallback
+                    const textarea = document.createElement('textarea');
+                    textarea.value = url;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    showStatus('Link copied!', 'success');
                 });
             }
+        }
+        
+        // ============================================
+        // ADD TO WALLET (Apple Wallet/Google Pay)
+        // ============================================
+        function addToWallet() {
+            // For Apple Wallet, you'd generate a .pkpass file
+            // For now, just show a message
+            showStatus('Wallet feature coming soon!', 'info');
+        }
+        
+        // ============================================
+        // SHOW STATUS MESSAGE
+        // ============================================
+        function showStatus(message, type = 'info') {
+            const statusEl = document.getElementById('statusMessage');
+            const icons = {
+                success: 'fa-check-circle',
+                error: 'fa-exclamation-triangle',
+                info: 'fa-info-circle'
+            };
+            const colors = {
+                success: '#10b981',
+                error: '#ef4444',
+                info: '#3b82f6'
+            };
+            statusEl.innerHTML = `
+                <i class="fas ${icons[type]}" style="color:${colors[type]};"></i>
+                <span style="color:${colors[type]};">${message}</span>
+            `;
+            setTimeout(() => {
+                // Restore previous status if card is active
+                if (cardData && cardData.status === 'active') {
+                    statusEl.innerHTML = `
+                        <i class="fas fa-check-circle" style="color:#10b981;"></i>
+                        <span class="success-text">Card is Active</span>
+                    `;
+                }
+            }, 3000);
         }
         
         // ============================================
         // LOAD ON PAGE START
         // ============================================
         window.onload = function() {
+            // Show app icons by default
+            document.getElementById('appIcons').style.display = 'flex';
+            document.getElementById('appDivider').style.display = 'flex';
+            
             fetchCardDetails();
         };
     </script>
